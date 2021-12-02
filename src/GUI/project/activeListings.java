@@ -114,15 +114,15 @@ public class activeListings {
             );
 
             stmt = con.createStatement();
-            String runQuery = ("SELECT shortName, generalLoc, meanReview FROM propertyMainData "
+            String runQuery = ("SELECT * FROM propertyMainData "
                     + "WHERE hostID = '" + hostID + "' AND propertyID = '" + value.split(" @ ")[1] + "'").toString();
             System.out.println("Query Processed!");
             ResultSet res = stmt.executeQuery(runQuery);
             
             if(res.next()){
-                propertyData.add(res.getString(1));
-                propertyData.add(res.getString(2));
-                propertyData.add(String.valueOf(res.getInt(3)));
+                propertyData.add(res.getString(3));
+                propertyData.add(res.getString(5));
+                propertyData.add(String.valueOf(res.getInt(7)));
             }
             else{
                 ;
@@ -139,7 +139,13 @@ public class activeListings {
             
             while(res.next()){
                 bedrooms += 1;
-                if(res.getString(4) == "single"){
+                if(res.getString(4).equals("single")){
+                    maxGuests += 1;
+                }
+                else{
+                    maxGuests += 2;
+                }
+                if(res.getString(5).equals("single")){
                     maxGuests += 1;
                 }
                 else{
