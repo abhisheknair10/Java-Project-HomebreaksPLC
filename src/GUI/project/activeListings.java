@@ -4,7 +4,7 @@
  * and open the template in the editor.
  * 
  */
-package GUI;
+package GUI.project;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
