@@ -1,4 +1,4 @@
-package GUI;
+package GUI.project;
 
 
 import java.nio.charset.StandardCharsets;
