@@ -1160,6 +1160,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         try{
             String selectedString = (String) listOfProperties.getSelectedValue();
             String [] returnedData = waiter.lookUpProperty(selectedString, validatedEmail);
+            String [] returnedBookings = waiter.getConfirmedBookings(selectedString, validatedEmail);
            
             propertyName.setText(returnedData[0]);
             detailedLoc.setText(returnedData[1]);
@@ -1167,6 +1168,11 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
             noOfBedrooms.setText(returnedData[3]);
             maxGuests.setText(returnedData[4]);
             
+            bookedDates.setModel(new javax.swing.AbstractListModel<String>() {
+                //String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+                public int getSize() { return returnedBookings.length; }
+                public String getElementAt(int i) { return returnedBookings[i]; }
+            });
         }
         catch(Exception ex) {
             //Logger.getLogger(HomeBreaksPLC_GUI.class.getName()).log(Level.SEVERE, null, ex);
