@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -178,31 +179,31 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         sBedType1 = new javax.swing.JComboBox<>();
         jButton5 = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        sBedDataTable = new javax.swing.JTable();
         jLabel29 = new javax.swing.JLabel();
         sBedType2 = new javax.swing.JComboBox<>();
         jButton4 = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
-        sBedType3 = new javax.swing.JComboBox<>();
+        sLinens = new javax.swing.JComboBox<>();
         jLabel49 = new javax.swing.JLabel();
-        sBedType4 = new javax.swing.JComboBox<>();
+        sTowels = new javax.swing.JComboBox<>();
         back1 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         sShower = new javax.swing.JCheckBox();
         sToilet = new javax.swing.JCheckBox();
-        jButton6 = new javax.swing.JButton();
+        sDelBath = new javax.swing.JButton();
         sBath = new javax.swing.JCheckBox();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        bathDataTable = new javax.swing.JTable();
         sAddBAth = new javax.swing.JButton();
         next3 = new javax.swing.JButton();
         back2 = new javax.swing.JButton();
         jLabel50 = new javax.swing.JLabel();
-        sToilet1 = new javax.swing.JCheckBox();
-        sToilet2 = new javax.swing.JCheckBox();
-        sToilet4 = new javax.swing.JCheckBox();
-        sShower2 = new javax.swing.JCheckBox();
+        sSharedBathroom = new javax.swing.JCheckBox();
+        sHairDryer = new javax.swing.JCheckBox();
+        sShampoo = new javax.swing.JCheckBox();
+        sToiletPaper = new javax.swing.JCheckBox();
         jPanel7 = new javax.swing.JPanel();
         next4 = new javax.swing.JButton();
         back3 = new javax.swing.JButton();
@@ -1222,7 +1223,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                             .addComponent(jScrollPane3)
                             .addComponent(sGeneralLocation)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 271, Short.MAX_VALUE))
+                .addGap(0, 132, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1247,7 +1248,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jCheckBox37)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(next1)
                 .addContainerGap())
         );
@@ -1277,16 +1278,16 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        sBedDataTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Bedroom No", "Bed Number", "Type", "Lines", "Towels"
+                "Bedroom No", "Bed Number", "Type", "Linens", "Towels"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Boolean.class, java.lang.Boolean.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, true, true
@@ -1300,14 +1301,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane5.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setHeaderValue("Bedroom No");
-            jTable1.getColumnModel().getColumn(1).setHeaderValue("Bed Number");
-            jTable1.getColumnModel().getColumn(2).setHeaderValue("Type");
-            jTable1.getColumnModel().getColumn(3).setHeaderValue("Lines");
-            jTable1.getColumnModel().getColumn(4).setHeaderValue("Towels");
-        }
+        jScrollPane5.setViewportView(sBedDataTable);
 
         jLabel29.setText("Bed 2 Type ");
 
@@ -1332,19 +1326,19 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
 
         jLabel48.setText("Linens");
 
-        sBedType3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
-        sBedType3.addActionListener(new java.awt.event.ActionListener() {
+        sLinens.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
+        sLinens.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sBedType3ActionPerformed(evt);
+                sLinensActionPerformed(evt);
             }
         });
 
         jLabel49.setText("Towels");
 
-        sBedType4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
-        sBedType4.addActionListener(new java.awt.event.ActionListener() {
+        sTowels.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
+        sTowels.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sBedType4ActionPerformed(evt);
+                sTowelsActionPerformed(evt);
             }
         });
 
@@ -1386,11 +1380,11 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                                         .addComponent(jLabel49))
                                     .addGap(26, 26, 26)
                                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(sBedType3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(sBedType4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(sLinens, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(sTowels, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGap(72, 72, 72))
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(back1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1416,10 +1410,10 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel48)
-                            .addComponent(sBedType3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(sLinens, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(sBedType4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sTowels, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel49))))
                 .addGap(53, 53, 53)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1450,7 +1444,12 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setText("Delete Bathroom");
+        sDelBath.setText("Delete Bathroom");
+        sDelBath.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sDelBathActionPerformed(evt);
+            }
+        });
 
         sBath.setText("Bath");
         sBath.addActionListener(new java.awt.event.ActionListener() {
@@ -1459,7 +1458,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
             }
         });
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        bathDataTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -1468,7 +1467,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Object.class, java.lang.Boolean.class, java.lang.Boolean.class, java.lang.Boolean.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, true, false, false, false
@@ -1482,7 +1481,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane6.setViewportView(jTable2);
+        jScrollPane6.setViewportView(bathDataTable);
 
         sAddBAth.setText("Add Bathroom");
         sAddBAth.addActionListener(new java.awt.event.ActionListener() {
@@ -1509,31 +1508,31 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         jLabel50.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel50.setText("Bathroom Facilites");
 
-        sToilet1.setText("Shared Bathroom");
-        sToilet1.addActionListener(new java.awt.event.ActionListener() {
+        sSharedBathroom.setText("Shared Bathroom");
+        sSharedBathroom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sToilet1ActionPerformed(evt);
+                sSharedBathroomActionPerformed(evt);
             }
         });
 
-        sToilet2.setText("Hair Dryer (HD)");
-        sToilet2.addActionListener(new java.awt.event.ActionListener() {
+        sHairDryer.setText("Hair Dryer (HD)");
+        sHairDryer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sToilet2ActionPerformed(evt);
+                sHairDryerActionPerformed(evt);
             }
         });
 
-        sToilet4.setText("Shampoo");
-        sToilet4.addActionListener(new java.awt.event.ActionListener() {
+        sShampoo.setText("Shampoo");
+        sShampoo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sToilet4ActionPerformed(evt);
+                sShampooActionPerformed(evt);
             }
         });
 
-        sShower2.setText("Toilet Paper (TP)");
-        sShower2.addActionListener(new java.awt.event.ActionListener() {
+        sToiletPaper.setText("Toilet Paper (TP)");
+        sToiletPaper.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sShower2ActionPerformed(evt);
+                sToiletPaperActionPerformed(evt);
             }
         });
 
@@ -1553,31 +1552,28 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGap(98, 98, 98)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(sShower2, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel6Layout.createSequentialGroup()
-                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(sToilet, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(sBath, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(sShower, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(163, 163, 163)
-                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(sToilet4)
-                                            .addComponent(sToilet2)
-                                            .addComponent(sToilet1)))))
+                                    .addComponent(sToilet, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(sBath, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(sShower, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(sToiletPaper, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(163, 163, 163)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(sShampoo)
+                                    .addComponent(sHairDryer)
+                                    .addComponent(sSharedBathroom)))
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGap(63, 63, 63)
+                                .addGap(281, 281, 281)
+                                .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(64, 64, 64)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
                                         .addComponent(sAddBAth)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton6))
+                                        .addComponent(sDelBath))
                                     .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 104, Short.MAX_VALUE)))
+                        .addGap(0, 107, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(281, 281, 281)
-                .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1587,24 +1583,24 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 .addGap(43, 43, 43)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sToilet)
-                    .addComponent(sToilet1))
+                    .addComponent(sSharedBathroom))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sBath)
-                    .addComponent(sToilet2))
+                    .addComponent(sHairDryer))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sShower)
-                    .addComponent(sToilet4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addComponent(sShower2)
-                .addGap(41, 41, 41)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(sAddBAth)
-                    .addComponent(jButton6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(sShampoo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(sToiletPaper)
+                .addGap(46, 46, 46)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sDelBath)
+                    .addComponent(sAddBAth))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(next3)
                     .addComponent(back2))
@@ -2658,7 +2654,17 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_sBedType2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        String nlBedOne = sBedType1.getSelectedItem().toString();
+        String nlBedTwo = sBedType2.getSelectedItem().toString();
+        String nlLinens = sLinens.getSelectedItem().toString();
+        String nlTowels = sTowels.getSelectedItem().toString();
+        
+        DefaultTableModel rowModel = (DefaultTableModel) sBedDataTable.getModel();
+        String noOfRows = String.valueOf((rowModel.getRowCount()/2)+1);
+        Object [] row1 = {noOfRows, "1", nlBedOne, nlLinens, nlTowels};
+        Object [] row2 = {noOfRows, "2", nlBedTwo, nlLinens, nlTowels};
+        rowModel.addRow(row1);
+        rowModel.addRow(row2);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void sBedType1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sBedType1ActionPerformed
@@ -2676,7 +2682,16 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_next2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        int rowCount = sBedDataTable.getRowCount();
+        System.out.println(rowCount);
+        
+        try {
+            ((DefaultTableModel)sBedDataTable.getModel()).removeRow(rowCount-1);
+            ((DefaultTableModel)sBedDataTable.getModel()).removeRow(rowCount-2);
+        }
+        catch(Exception ex) {
+            showMessageDialog(null, "OOPS! Something Went Wrong");
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void next4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_next4MouseClicked
@@ -2684,7 +2699,38 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_next4MouseClicked
 
     private void sAddBAthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sAddBAthActionPerformed
-        // TODO add your handling code here:
+        String nlToilet = "";
+        String nlBath = "";
+        String nlShower = "";
+        String nlToiletPaper = "";
+        String nlSharedBath = "";
+        String nlHairDryer = "";
+        String nlShampoo = "";
+        
+        if(sToilet.isSelected()){nlToilet = "Yes";}
+        else{nlToilet = "No";}
+        
+        if(sBath.isSelected()){nlBath = "Yes";}
+        else{nlBath = "No";}
+        
+        if(sShower.isSelected()){nlShower = "Yes";}
+        else{nlShower = "No";}
+        
+        if(sToiletPaper.isSelected()){nlToiletPaper = "Yes";}
+        else{nlToiletPaper = "No";}
+        
+        if(sSharedBathroom.isSelected()){nlSharedBath = "Yes";}
+        else{nlSharedBath = "No";}
+        
+        if(sHairDryer.isSelected()){nlHairDryer = "Yes";}
+        else{nlHairDryer = "No";}
+        
+        if(sShampoo.isSelected()){nlShampoo = "Yes";}
+        else{nlShampoo = "No";}
+        
+        DefaultTableModel rowModel = (DefaultTableModel) bathDataTable.getModel();
+        Object [] row1 = {rowModel.getRowCount()+1, nlToilet, nlBath, nlShower, nlToiletPaper, nlSharedBath, nlHairDryer, nlShampoo};
+        rowModel.addRow(row1);
     }//GEN-LAST:event_sAddBAthActionPerformed
 
     private void sShowerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sShowerActionPerformed
@@ -2708,13 +2754,13 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         jPanel9.setVisible(false);
     }//GEN-LAST:event_next3ActionPerformed
 
-    private void sBedType3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sBedType3ActionPerformed
+    private void sLinensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sLinensActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sBedType3ActionPerformed
+    }//GEN-LAST:event_sLinensActionPerformed
 
-    private void sBedType4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sBedType4ActionPerformed
+    private void sTowelsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sTowelsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sBedType4ActionPerformed
+    }//GEN-LAST:event_sTowelsActionPerformed
 
     private void back1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back1ActionPerformed
         jPanel4.setVisible(true);
@@ -2743,17 +2789,17 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         jPanel9.setVisible(false);
     }//GEN-LAST:event_back3ActionPerformed
 
-    private void sToilet1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sToilet1ActionPerformed
+    private void sSharedBathroomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sSharedBathroomActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sToilet1ActionPerformed
+    }//GEN-LAST:event_sSharedBathroomActionPerformed
 
-    private void sToilet2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sToilet2ActionPerformed
+    private void sHairDryerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sHairDryerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sToilet2ActionPerformed
+    }//GEN-LAST:event_sHairDryerActionPerformed
 
-    private void sToilet4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sToilet4ActionPerformed
+    private void sShampooActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sShampooActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sToilet4ActionPerformed
+    }//GEN-LAST:event_sShampooActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
@@ -2787,9 +2833,9 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox8ActionPerformed
 
-    private void sShower2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sShower2ActionPerformed
+    private void sToiletPaperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sToiletPaperActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_sShower2ActionPerformed
+    }//GEN-LAST:event_sToiletPaperActionPerformed
 
     private void jCheckBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox9ActionPerformed
         // TODO add your handling code here:
@@ -2942,6 +2988,18 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_rawPasswordSignIn1ActionPerformed
 
+    private void sDelBathActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sDelBathActionPerformed
+        int rowCount = bathDataTable.getRowCount();
+        System.out.println(rowCount);
+        
+        try {
+            ((DefaultTableModel)bathDataTable.getModel()).removeRow(rowCount-1);
+        }
+        catch(Exception ex) {
+            showMessageDialog(null, "OOPS! Something Went Wrong");
+        }
+    }//GEN-LAST:event_sDelBathActionPerformed
+
       
     /**
      * @param args the command line arguments
@@ -2987,6 +3045,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JButton back3;
     private javax.swing.JButton back4;
     private javax.swing.JButton back5;
+    private javax.swing.JTable bathDataTable;
     private javax.swing.JButton beginSearch;
     private javax.swing.JList<String> bookedDates;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -3005,7 +3064,6 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
@@ -3160,8 +3218,6 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTextArea jTextArea1;
@@ -3198,20 +3254,22 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JPasswordField rawPasswordSignIn1;
     private javax.swing.JButton sAddBAth;
     private javax.swing.JCheckBox sBath;
+    private javax.swing.JTable sBedDataTable;
     private javax.swing.JComboBox<String> sBedType1;
     private javax.swing.JComboBox<String> sBedType2;
-    private javax.swing.JComboBox<String> sBedType3;
-    private javax.swing.JComboBox<String> sBedType4;
+    private javax.swing.JButton sDelBath;
     private javax.swing.JTextArea sDetailedLocation;
     private javax.swing.JTextField sGeneralLocation;
+    private javax.swing.JCheckBox sHairDryer;
+    private javax.swing.JComboBox<String> sLinens;
     private javax.swing.JTextArea sPropertyDesctiption;
     private javax.swing.JTextField sPropertyName;
+    private javax.swing.JCheckBox sShampoo;
+    private javax.swing.JCheckBox sSharedBathroom;
     private javax.swing.JCheckBox sShower;
-    private javax.swing.JCheckBox sShower2;
     private javax.swing.JCheckBox sToilet;
-    private javax.swing.JCheckBox sToilet1;
-    private javax.swing.JCheckBox sToilet2;
-    private javax.swing.JCheckBox sToilet4;
+    private javax.swing.JCheckBox sToiletPaper;
+    private javax.swing.JComboBox<String> sTowels;
     private javax.swing.JButton signIn;
     private javax.swing.JButton signUp;
     private javax.swing.JPanel signUpPanel;

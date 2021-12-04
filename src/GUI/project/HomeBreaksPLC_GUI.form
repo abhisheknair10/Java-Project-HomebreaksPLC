@@ -1783,7 +1783,7 @@
                                               </Group>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="0" pref="271" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="132" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1814,7 +1814,7 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                       <Component id="jCheckBox37" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="69" max="32767" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Component id="next1" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -1945,8 +1945,8 @@
                                                           </Group>
                                                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                                           <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="sBedType3" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                                                              <Component id="sBedType4" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                                                              <Component id="sLinens" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                                                              <Component id="sTowels" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
                                                           </Group>
                                                       </Group>
                                                   </Group>
@@ -1955,7 +1955,7 @@
                                               <Component id="jScrollPane5" min="-2" pref="537" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace pref="96" max="32767" attributes="0"/>
+                                      <EmptySpace pref="83" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
@@ -1987,11 +1987,11 @@
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="3" attributes="0">
                                                   <Component id="jLabel48" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="sBedType3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="sLinens" alignment="3" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="3" attributes="0">
-                                                  <Component id="sBedType4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="sTowels" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   <Component id="jLabel49" alignment="3" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
@@ -2064,41 +2064,41 @@
 
                               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                               <SubComponents>
-                                <Component class="javax.swing.JTable" name="jTable1">
+                                <Component class="javax.swing.JTable" name="sBedDataTable">
                                   <Properties>
                                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                       <Table columnCount="5" rowCount="0">
                                         <Column editable="false" title="Bedroom No" type="java.lang.Integer"/>
                                         <Column editable="false" title="Bed Number" type="java.lang.Integer"/>
                                         <Column editable="false" title="Type" type="java.lang.String"/>
-                                        <Column editable="true" title="Lines" type="java.lang.Boolean"/>
-                                        <Column editable="true" title="Towels" type="java.lang.Boolean"/>
+                                        <Column editable="true" title="Linens" type="java.lang.String"/>
+                                        <Column editable="true" title="Towels" type="java.lang.String"/>
                                       </Table>
                                     </Property>
                                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                                       <TableColumnModel selectionModel="0">
                                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                          <Title value="Bedroom No"/>
+                                          <Title/>
                                           <Editor/>
                                           <Renderer/>
                                         </Column>
                                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                          <Title value="Bed Number"/>
+                                          <Title/>
                                           <Editor/>
                                           <Renderer/>
                                         </Column>
                                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                          <Title value="Type"/>
+                                          <Title/>
                                           <Editor/>
                                           <Renderer/>
                                         </Column>
                                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                          <Title value="Lines"/>
+                                          <Title/>
                                           <Editor/>
                                           <Renderer/>
                                         </Column>
                                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                          <Title value="Towels"/>
+                                          <Title/>
                                           <Editor/>
                                           <Renderer/>
                                         </Column>
@@ -2160,7 +2160,7 @@
                                 <Property name="text" type="java.lang.String" value="Linens"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JComboBox" name="sBedType3">
+                            <Component class="javax.swing.JComboBox" name="sLinens">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="2">
@@ -2170,7 +2170,7 @@
                                 </Property>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sBedType3ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sLinensActionPerformed"/>
                               </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -2181,7 +2181,7 @@
                                 <Property name="text" type="java.lang.String" value="Towels"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JComboBox" name="sBedType4">
+                            <Component class="javax.swing.JComboBox" name="sTowels">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                                   <StringArray count="2">
@@ -2191,7 +2191,7 @@
                                 </Property>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sBedType4ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sTowelsActionPerformed"/>
                               </Events>
                               <AuxValues>
                                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -2222,46 +2222,41 @@
                                           </Group>
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
                                                       <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="sShower2" min="-2" pref="124" max="-2" attributes="0"/>
-                                                          <Group type="102" alignment="0" attributes="0">
-                                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                                  <Component id="sToilet" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
-                                                                  <Component id="sBath" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
-                                                                  <Component id="sShower" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
-                                                              </Group>
-                                                              <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
-                                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                                  <Component id="sToilet4" min="-2" max="-2" attributes="0"/>
-                                                                  <Component id="sToilet2" min="-2" max="-2" attributes="0"/>
-                                                                  <Component id="sToilet1" min="-2" max="-2" attributes="0"/>
-                                                              </Group>
-                                                          </Group>
+                                                          <Component id="sToilet" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
+                                                          <Component id="sBath" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
+                                                          <Component id="sShower" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
+                                                          <Component id="sToiletPaper" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="sShampoo" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="sHairDryer" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="sSharedBathroom" min="-2" max="-2" attributes="0"/>
                                                       </Group>
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="281" max="-2" attributes="0"/>
+                                                      <Component id="jLabel50" min="-2" pref="130" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                                           <Group type="102" alignment="0" attributes="0">
                                                               <Component id="sAddBAth" min="-2" max="-2" attributes="0"/>
                                                               <EmptySpace max="32767" attributes="0"/>
-                                                              <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="sDelBath" min="-2" max="-2" attributes="0"/>
                                                           </Group>
                                                           <Component id="jScrollPane6" alignment="0" min="-2" pref="534" max="-2" attributes="0"/>
                                                       </Group>
                                                   </Group>
                                               </Group>
-                                              <EmptySpace min="0" pref="104" max="32767" attributes="0"/>
+                                              <EmptySpace min="0" pref="107" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="281" max="-2" attributes="0"/>
-                                      <Component id="jLabel50" min="-2" pref="130" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2273,28 +2268,28 @@
                                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="sToilet" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="sToilet1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="sSharedBathroom" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="sBath" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="sToilet2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="sHairDryer" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="sShower" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="sToilet4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="sShampoo" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="38" max="32767" attributes="0"/>
-                                      <Component id="sShower2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="sAddBAth" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="sToiletPaper" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                                       <Component id="jScrollPane6" min="-2" pref="157" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="sDelBath" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="sAddBAth" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace pref="73" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="next3" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="back2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2321,10 +2316,13 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sToiletActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JButton" name="jButton6">
+                            <Component class="javax.swing.JButton" name="sDelBath">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Delete Bathroom"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sDelBathActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JCheckBox" name="sBath">
                               <Properties>
@@ -2341,18 +2339,18 @@
 
                               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                               <SubComponents>
-                                <Component class="javax.swing.JTable" name="jTable2">
+                                <Component class="javax.swing.JTable" name="bathDataTable">
                                   <Properties>
                                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                       <Table columnCount="8" rowCount="0">
                                         <Column editable="false" title="Number" type="java.lang.Integer"/>
-                                        <Column editable="false" title="Toilet" type="java.lang.Boolean"/>
-                                        <Column editable="false" title="Bath" type="java.lang.Boolean"/>
-                                        <Column editable="false" title="Shower" type="java.lang.Boolean"/>
-                                        <Column editable="true" title="TP" type="java.lang.Object"/>
-                                        <Column editable="false" title="Shared" type="java.lang.Boolean"/>
-                                        <Column editable="false" title="HD" type="java.lang.Boolean"/>
-                                        <Column editable="false" title="Shampoo" type="java.lang.Boolean"/>
+                                        <Column editable="false" title="Toilet" type="java.lang.String"/>
+                                        <Column editable="false" title="Bath" type="java.lang.String"/>
+                                        <Column editable="false" title="Shower" type="java.lang.String"/>
+                                        <Column editable="true" title="TP" type="java.lang.String"/>
+                                        <Column editable="false" title="Shared" type="java.lang.String"/>
+                                        <Column editable="false" title="HD" type="java.lang.String"/>
+                                        <Column editable="false" title="Shampoo" type="java.lang.String"/>
                                       </Table>
                                     </Property>
                                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -2439,36 +2437,36 @@
                                 <Property name="text" type="java.lang.String" value="Bathroom Facilites"/>
                               </Properties>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="sToilet1">
+                            <Component class="javax.swing.JCheckBox" name="sSharedBathroom">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Shared Bathroom"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sToilet1ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sSharedBathroomActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="sToilet2">
+                            <Component class="javax.swing.JCheckBox" name="sHairDryer">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Hair Dryer (HD)"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sToilet2ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sHairDryerActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="sToilet4">
+                            <Component class="javax.swing.JCheckBox" name="sShampoo">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Shampoo"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sToilet4ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sShampooActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="sShower2">
+                            <Component class="javax.swing.JCheckBox" name="sToiletPaper">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Toilet Paper (TP)"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sShower2ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sToiletPaperActionPerformed"/>
                               </Events>
                             </Component>
                           </SubComponents>
