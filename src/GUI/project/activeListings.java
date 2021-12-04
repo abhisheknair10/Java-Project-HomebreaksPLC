@@ -74,26 +74,67 @@ public class activeListings {
 
             stmt = con.createStatement();
             String [] valueSplit = value.split(" @ ");
-            String statement1 = ("DELETE FROM propertyMainData WHERE hostID = '" 
-                    + hostID + "' AND propertyID = '" + valueSplit[1] + "'").toString();
             
-            String statement2 = ("DELETE FROM bathroomData WHERE hostID = '" 
-                    + hostID + "' AND propertyID = '" + valueSplit[1] + "'").toString();
-            
-            String statement3 = ("DELETE FROM bedData WHERE hostID = '" 
-                    + hostID + "' AND propertyID = '" + valueSplit[1] + "'").toString();
-            
-            String statement4 = ("DELETE FROM facilites WHERE hostID = '" 
-                    + hostID + "' AND propertyID = '" + valueSplit[1] + "'").toString();
-            
-            String statement5 = ("DELETE FROM reviewData WHERE hostID = '" 
-                    + hostID + "' AND propertyID = '" + valueSplit[1] + "'").toString();
-
+            String statement1 = ("DELETE FROM bathroomData "
+                    + "WHERE hostID = '" + hostID + 
+                    "' AND propertyID = '" + valueSplit[1] + 
+                    "'").toString();
             stmt.executeUpdate(statement1);
-            stmt.executeUpdate(statement2);
-            stmt.executeUpdate(statement3);
-            stmt.executeUpdate(statement4);
-            stmt.executeUpdate(statement5);
+            
+            statement1 = ("DELETE FROM bedData "
+                    + "WHERE hostID = '" + hostID + 
+                    "' AND propertyID = '" + valueSplit[1] + 
+                    "'").toString();
+            stmt.executeUpdate(statement1);
+            
+            statement1 = ("DELETE FROM bookings "
+                    + "WHERE hostID = '" + hostID + 
+                    "' AND propertyID = '" + valueSplit[1] + 
+                    "'").toString();
+            stmt.executeUpdate(statement1);
+            
+            statement1 = ("DELETE FROM chargeBands "
+                    + "WHERE hostID = '" + hostID + 
+                    "' AND propertyID = '" + valueSplit[1] + 
+                    "'").toString();
+            stmt.executeUpdate(statement1);
+            
+            statement1 = ("DELETE FROM kitchen "
+                    + "WHERE hostID = '" + hostID + 
+                    "' AND propertyID = '" + valueSplit[1] + 
+                    "'").toString();
+            stmt.executeUpdate(statement1);
+            
+            statement1 = ("DELETE FROM living "
+                    + "WHERE hostID = '" + hostID + 
+                    "' AND propertyID = '" + valueSplit[1] + 
+                    "'").toString();
+            stmt.executeUpdate(statement1);
+            
+            statement1 = ("DELETE FROM outdoor "
+                    + "WHERE hostID = '" + hostID + 
+                    "' AND propertyID = '" + valueSplit[1] + 
+                    "'").toString();
+            stmt.executeUpdate(statement1);
+            
+            statement1 = ("DELETE FROM propertyMainData "
+                    + "WHERE hostID = '" + hostID + 
+                    "' AND propertyID = '" + valueSplit[1] + 
+                    "'").toString();
+            stmt.executeUpdate(statement1);
+            
+            statement1 = ("DELETE FROM reviewData "
+                    + "WHERE hostID = '" + hostID + 
+                    "' AND propertyID = '" + valueSplit[1] + 
+                    "'").toString();
+            stmt.executeUpdate(statement1);
+            
+            statement1 = ("DELETE FROM utility "
+                    + "WHERE hostID = '" + hostID + 
+                    "' AND propertyID = '" + valueSplit[1] + 
+                    "'").toString();
+            stmt.executeUpdate(statement1);
+            
             System.out.println("Query Processed!");
         }
         catch (Exception ex){
@@ -147,7 +188,7 @@ public class activeListings {
                 if(res.getString(4).equals("single")){
                     maxGuests += 1;
                 }
-                else if(res.getString(4) == "none"){
+                else if(res.getString(4).equals("none")){
                     maxGuests += 0;
                 }
                 else{
@@ -157,7 +198,7 @@ public class activeListings {
                 if(res.getString(5).equals("single")){
                     maxGuests += 1;
                 }
-                else if(res.getString(5) == "none"){
+                else if(res.getString(5).equals("none")){
                     maxGuests += 0;
                 }
                 else{

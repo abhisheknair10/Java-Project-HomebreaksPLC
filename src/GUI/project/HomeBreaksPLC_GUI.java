@@ -1938,7 +1938,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.Float.class, java.lang.Float.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -2179,7 +2179,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
             hostJarvisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(hostJarvisLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
         hostJarvisLayout.setVerticalGroup(
