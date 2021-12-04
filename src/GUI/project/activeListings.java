@@ -11,7 +11,12 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 /**
  *
@@ -142,11 +147,18 @@ public class activeListings {
                 if(res.getString(4).equals("single")){
                     maxGuests += 1;
                 }
+                else if(res.getString(4) == "none"){
+                    maxGuests += 0;
+                }
                 else{
                     maxGuests += 2;
                 }
+                
                 if(res.getString(5).equals("single")){
                     maxGuests += 1;
+                }
+                else if(res.getString(5) == "none"){
+                    maxGuests += 0;
                 }
                 else{
                     maxGuests += 2;
@@ -168,6 +180,51 @@ public class activeListings {
         
         String str[] = new String[propertyData.size()];
         for (int j = 0; j < propertyData.size(); j++) {str[j] = propertyData.get(j);}
+        return str;
+    }
+    
+    public static String [] getConfirmedBookings (String value, String hostID) throws Exception {
+        Connection con = null;
+        Statement stmt = null;
+        ArrayList<String> confirmedBookings = new ArrayList<String>();
+
+        try {
+            System.out.println("Connection Opened");
+            con = DriverManager.getConnection(
+                    "jdbc:mysql://stusql.dcs.shef.ac.uk/team015",
+                    "team015",
+                    "ea4da4e8"
+            );
+            
+            String addFields = "";
+            String confirmedStatus = "";
+
+            stmt = con.createStatement();
+            String runQuery = ("SELECT * FROM bookings "
+                    + "WHERE hostID = '" + hostID + "' AND propertyID = '" + value.split(" @ ")[1] + "' "
+                            + "AND confirmed = TRUE ORDER BY startDate ASC").toString();
+            System.out.println("Query Processed!");
+            ResultSet res = stmt.executeQuery(runQuery);
+            
+            while(res.next()){
+                DateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+                Date startDate = format.parse(res.getString(3));
+                Date endDate = format.parse(res.getString(4));
+                int daysBooked = ((int) (endDate.getTime() - startDate.getTime()))/86400000;
+                addFields = res.getString(3) + " to " + res.getString(4) + " - " + String.valueOf(daysBooked) + " day(s)";
+                confirmedBookings.add(addFields);
+            }
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+        finally {
+            if(con != null) con.close();System.out.println("Connection Closed");
+            if(stmt != null) stmt.close();
+        }
+        
+        String str[] = new String[confirmedBookings.size()];
+        for (int j = 0; j < confirmedBookings.size(); j++) {str[j] = confirmedBookings.get(j);}
         return str;
     }
 }
