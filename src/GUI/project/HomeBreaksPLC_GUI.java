@@ -47,7 +47,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         rawPasswordSignIn = new javax.swing.JPasswordField();
         signIn = new javax.swing.JButton();
-        jCheckBox18 = new javax.swing.JCheckBox();
+        loginAsHost = new javax.swing.JCheckBox();
         SignUp = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -279,7 +279,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox18.setText("Login as Host");
+        loginAsHost.setText("Login as Host");
 
         javax.swing.GroupLayout LoginLayout = new javax.swing.GroupLayout(Login);
         Login.setLayout(LoginLayout);
@@ -291,8 +291,12 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                         .addGap(282, 282, 282)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(LoginLayout.createSequentialGroup()
+                        .addGap(305, 305, 305)
+                        .addComponent(signIn, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(LoginLayout.createSequentialGroup()
                         .addGap(107, 107, 107)
                         .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(loginAsHost, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(LoginLayout.createSequentialGroup()
                                 .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -300,12 +304,8 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                                 .addGap(44, 44, 44)
                                 .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(emailSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(rawPasswordSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jCheckBox18, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(LoginLayout.createSequentialGroup()
-                        .addGap(305, 305, 305)
-                        .addComponent(signIn, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(199, Short.MAX_VALUE))
+                                    .addComponent(rawPasswordSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(203, Short.MAX_VALUE))
         );
         LoginLayout.setVerticalGroup(
             LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,10 +321,10 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(rawPasswordSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
-                .addComponent(jCheckBox18)
+                .addComponent(loginAsHost)
                 .addGap(20, 20, 20)
                 .addComponent(signIn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(318, Short.MAX_VALUE))
+                .addContainerGap(333, Short.MAX_VALUE))
         );
 
         mainUserPanel.addTab("Host Login", Login);
@@ -733,8 +733,8 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel55, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1066,7 +1066,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                             .addComponent(jScrollPane3)
                             .addComponent(sGeneralLocation)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 271, Short.MAX_VALUE))
+                .addGap(0, 183, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1091,7 +1091,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jCheckBox37)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
                 .addComponent(next1)
                 .addContainerGap())
         );
@@ -2269,19 +2269,23 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
 
             if(verifyCredentials) {
                 showMessageDialog(null, "Sign In Successful");
-                try {
-                    signInValidators.setSignInType(EMAIL, "TRUE");
-                    validatedEmail = EMAIL;
-                    validatedHost = true;
-                    signUpPanel.setVisible(false);
-                    hostJarvis.setVisible(true);
-                } catch (Exception ex) {
-                    //Logger.getLogger(HomeBreaksPLC_GUI.class.getName()).log(Level.SEVERE, null, ex);
-                    validatedEmail = EMAIL;
-                    validatedHost = false;
-                    showMessageDialog(null, "OOPS! Something Went Wrong");
+                if(loginAsHost.isSelected()){
+                    try {
+                        signInValidators.setSignInType(EMAIL, "TRUE");
+                        validatedEmail = EMAIL;
+                        validatedHost = true;
+                        signUpPanel.setVisible(false);
+                        hostJarvis.setVisible(true);
+                    } catch (Exception ex) {
+                        //Logger.getLogger(HomeBreaksPLC_GUI.class.getName()).log(Level.SEVERE, null, ex);
+                        validatedEmail = EMAIL;
+                        validatedHost = false;
+                        showMessageDialog(null, "OOPS! Something Went Wrong");
+                    }
                 }
-                
+                else{
+                    showMessageDialog(null, "Signed in as Guest");
+                }
             }
             else{
                 showMessageDialog(null, "The email and password combination does not exist");
@@ -2812,7 +2816,6 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox15;
     private javax.swing.JCheckBox jCheckBox16;
     private javax.swing.JCheckBox jCheckBox17;
-    private javax.swing.JCheckBox jCheckBox18;
     private javax.swing.JCheckBox jCheckBox19;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox20;
@@ -2954,11 +2957,10 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JLayeredPane layeredPane;
     private javax.swing.JList<String> listOfProperties;
+    private javax.swing.JCheckBox loginAsHost;
     private javax.swing.JButton lookUpProperty;
     private javax.swing.JTabbedPane mainUserPanel;
     private javax.swing.JLabel maxGuests;
