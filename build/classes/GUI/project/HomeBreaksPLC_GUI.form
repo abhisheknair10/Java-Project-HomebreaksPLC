@@ -30,7 +30,7 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Component id="layeredPane" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -39,7 +39,6 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Component id="layeredPane" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -98,7 +97,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="mainUserPanel" max="32767" attributes="0"/>
+                      <Component id="mainUserPanel" pref="560" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -143,7 +142,7 @@
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="303" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="385" max="32767" attributes="0"/>
                               <Component id="signIn" min="-2" pref="106" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="303" max="-2" attributes="0"/>
                           </Group>
@@ -166,7 +165,7 @@
                               </Group>
                               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                               <Component id="signIn" min="-2" pref="33" max="-2" attributes="0"/>
-                              <EmptySpace pref="246" max="32767" attributes="0"/>
+                              <EmptySpace pref="285" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -285,7 +284,7 @@
                                       <Component id="signUp" min="-2" pref="106" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="180" max="32767" attributes="0"/>
+                              <EmptySpace pref="311" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -468,7 +467,7 @@
                                       <Component id="enquireWOSignIn" min="-2" pref="97" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="100" max="32767" attributes="0"/>
+                              <EmptySpace pref="182" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -479,7 +478,7 @@
                               <Component id="jLabel13" min="-2" pref="71" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                               <Component id="enquireWOSignIn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="223" max="32767" attributes="0"/>
+                              <EmptySpace pref="262" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -607,14 +606,14 @@
                                   <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
                                   <Component id="deleteListing" alignment="0" pref="242" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="22" max="32767" attributes="0"/>
+                              <EmptySpace pref="108" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="0" pref="46" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="65" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -688,7 +687,7 @@
                                       <Component id="deleteListing" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="37" max="32767" attributes="0"/>
+                              <EmptySpace pref="57" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -865,7 +864,7 @@
                                       <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="17" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -876,7 +875,7 @@
                               <Component id="jLabel15" min="-2" pref="32" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLayeredPane1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="17" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -919,13 +918,6 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jPanel6" pref="730" max="32767" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
@@ -938,21 +930,14 @@
                               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jPanel5" max="32767" attributes="0"/>
+                                      <Component id="jPanel5" pref="443" max="32767" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jPanel7" max="32767" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jPanel6" max="32767" attributes="0"/>
+                                      <Component id="jPanel7" pref="443" max="32767" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -986,7 +971,7 @@
                                                   <Component id="sGeneralLocation" max="32767" attributes="0"/>
                                                   <Component id="jScrollPane4" max="32767" attributes="0"/>
                                               </Group>
-                                              <EmptySpace min="0" pref="269" max="32767" attributes="0"/>
+                                              <EmptySpace min="0" pref="378" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -1105,27 +1090,8 @@
                                   <Group type="102" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                              <Component id="jButton2" min="-2" pref="73" max="-2" attributes="0"/>
-                                          </Group>
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jLabel29" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Group type="102" alignment="0" attributes="0">
-                                                              <Component id="sBedType2" min="-2" pref="101" max="-2" attributes="0"/>
-                                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                              <Component id="jButton5" min="-2" pref="126" max="-2" attributes="0"/>
-                                                          </Group>
-                                                          <Component id="sBedType1" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
                                                   <Component id="jLabel30" alignment="0" min="-2" pref="488" max="-2" attributes="0"/>
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <Group type="103" groupAlignment="1" attributes="0">
@@ -1139,16 +1105,16 @@
                                                       <Group type="103" groupAlignment="0" attributes="0">
                                                           <Group type="103" alignment="0" groupAlignment="0" attributes="0">
                                                               <Component id="sToilet" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="jCheckBox1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="sBath" alignment="1" min="-2" max="-2" attributes="0"/>
                                                           </Group>
-                                                          <Component id="jCheckBox2" alignment="0" min="-2" pref="31" max="-2" attributes="0"/>
+                                                          <Component id="sShower" alignment="0" min="-2" pref="31" max="-2" attributes="0"/>
                                                       </Group>
                                                       <EmptySpace min="-2" pref="195" max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="0" attributes="0">
                                                           <Group type="102" attributes="0">
                                                               <Component id="jLabel34" min="-2" pref="108" max="-2" attributes="0"/>
                                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                              <Component id="jCheckBox3" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="sSharedHost" min="-2" max="-2" attributes="0"/>
                                                           </Group>
                                                           <Group type="102" attributes="0">
                                                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -1157,22 +1123,49 @@
                                                               </Group>
                                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                                  <Component id="jCheckBox5" min="-2" pref="81" max="-2" attributes="0"/>
+                                                                  <Component id="sTowels" min="-2" pref="81" max="-2" attributes="0"/>
                                                                   <Group type="102" attributes="0">
-                                                                      <Component id="jCheckBox4" max="32767" attributes="0"/>
+                                                                      <Component id="sBedLinen" max="32767" attributes="0"/>
                                                                       <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                                                                   </Group>
                                                               </Group>
                                                           </Group>
                                                       </Group>
                                                   </Group>
-                                                  <Component id="jScrollPane5" alignment="0" min="-2" pref="537" max="-2" attributes="0"/>
+                                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jLabel29" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Group type="102" alignment="0" attributes="0">
+                                                                  <Component id="sBedType2" min="-2" pref="101" max="-2" attributes="0"/>
+                                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                                  <Component id="jButton5" min="-2" pref="126" max="-2" attributes="0"/>
+                                                                  <EmptySpace max="32767" attributes="0"/>
+                                                                  <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                                                              </Group>
+                                                              <Component id="sBedType1" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
+                                                      <Component id="jScrollPane5" alignment="0" min="-2" pref="537" max="-2" attributes="0"/>
+                                                  </Group>
                                               </Group>
-                                              <EmptySpace pref="113" max="32767" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jScrollPane6" min="-2" pref="534" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="jScrollPane6" min="-2" pref="534" max="-2" attributes="0"/>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="sAddBAth" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+                                                      <Component id="jButton6" min="-2" pref="119" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace pref="43" max="32767" attributes="0"/>
+                                              <Component id="jButton2" min="-2" pref="73" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -1193,6 +1186,7 @@
                                                   <Component id="sBedType2" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="jScrollPane5" min="-2" pref="75" max="-2" attributes="0"/>
@@ -1207,21 +1201,21 @@
                                                       <Component id="jLabel34" alignment="1" min="-2" max="-2" attributes="0"/>
                                                       <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Component id="jCheckBox3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="sSharedHost" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" attributes="0">
                                                       <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="jCheckBox1" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                          <Component id="jCheckBox4" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="sBath" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="sBedLinen" alignment="1" min="-2" max="-2" attributes="0"/>
                                                           <Component id="jLabel32" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       </Group>
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="0" attributes="0">
                                                           <Group type="103" groupAlignment="3" max="-2" attributes="0">
                                                               <Component id="jLabel36" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                              <Component id="jCheckBox5" alignment="3" max="32767" attributes="0"/>
+                                                              <Component id="sTowels" alignment="3" max="32767" attributes="0"/>
                                                           </Group>
                                                           <Component id="jLabel33" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       </Group>
@@ -1229,13 +1223,24 @@
                                                   <Component id="jLabel35" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <Component id="jCheckBox2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="sShower" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane6" min="-2" pref="75" max="-2" attributes="0"/>
-                                      <EmptySpace pref="12" max="32767" attributes="0"/>
-                                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="sAddBAth" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace pref="8" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="jScrollPane6" min="-2" pref="75" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1389,26 +1394,26 @@
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sToiletActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+                            <Component class="javax.swing.JCheckBox" name="sBath">
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox1ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sBathActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckBox2">
+                            <Component class="javax.swing.JCheckBox" name="sShower">
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox2ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sShowerActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckBox3">
+                            <Component class="javax.swing.JCheckBox" name="sSharedHost">
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckBox4">
+                            <Component class="javax.swing.JCheckBox" name="sBedLinen">
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox4ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sBedLinenActionPerformed"/>
                               </Events>
                             </Component>
-                            <Component class="javax.swing.JCheckBox" name="jCheckBox5">
+                            <Component class="javax.swing.JCheckBox" name="sTowels">
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox5ActionPerformed"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sTowelsActionPerformed"/>
                               </Events>
                             </Component>
                             <Container class="javax.swing.JScrollPane" name="jScrollPane6">
@@ -1457,6 +1462,30 @@
                                 </Component>
                               </SubComponents>
                             </Container>
+                            <Component class="javax.swing.JButton" name="sAddBAth">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Add Bathroom"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sAddBAthActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JButton" name="jButton4">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Delete Bed"/>
+                                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                                  <Dimension value="[117, 23]"/>
+                                </Property>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JButton" name="jButton6">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Delete Bathroom"/>
+                              </Properties>
+                            </Component>
                           </SubComponents>
                         </Container>
                         <Container class="javax.swing.JPanel" name="jPanel7">
@@ -1470,13 +1499,80 @@
                             <DimensionLayout dim="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="267" max="-2" attributes="0"/>
-                                      <Component id="jLabel20" min="-2" pref="40" max="-2" attributes="0"/>
-                                      <EmptySpace pref="334" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jButton3" min="-2" pref="73" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace pref="647" max="32767" attributes="0"/>
+                                              <Component id="jButton3" min="-2" pref="73" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="jLabel42" min="-2" pref="66" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="sMicrowave" min="-2" pref="81" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Group type="102" alignment="0" attributes="0">
+                                                              <Component id="jLabel41" min="-2" pref="66" max="-2" attributes="0"/>
+                                                              <EmptySpace max="-2" attributes="0"/>
+                                                              <Component id="sStove" min="-2" pref="81" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Group type="102" attributes="0">
+                                                              <Component id="jLabel45" min="-2" pref="66" max="-2" attributes="0"/>
+                                                              <EmptySpace max="-2" attributes="0"/>
+                                                              <Component id="sSatelite" min="-2" pref="87" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Group type="102" attributes="0">
+                                                              <Component id="jLabel44" min="-2" pref="66" max="-2" attributes="0"/>
+                                                              <EmptySpace max="-2" attributes="0"/>
+                                                              <Component id="sOven" min="-2" pref="81" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Group type="102" alignment="0" attributes="0">
+                                                              <Component id="jLabel37" min="-2" pref="66" max="-2" attributes="0"/>
+                                                              <EmptySpace max="-2" attributes="0"/>
+                                                              <Component id="sFridge" min="-2" pref="81" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Group type="102" alignment="0" attributes="0">
+                                                              <Component id="jLabel46" min="-2" pref="66" max="-2" attributes="0"/>
+                                                              <EmptySpace max="-2" attributes="0"/>
+                                                              <Component id="sDishwasher" min="-2" pref="87" max="-2" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
+                                                      <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Group type="102" attributes="0">
+                                                              <Component id="jLabel39" min="-2" pref="66" max="-2" attributes="0"/>
+                                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                              <Component id="sCookware" min="-2" pref="87" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Group type="102" alignment="0" attributes="0">
+                                                              <Component id="jLabel38" min="-2" pref="66" max="-2" attributes="0"/>
+                                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                              <Component id="sWifi" min="-2" pref="87" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Group type="102" alignment="0" attributes="0">
+                                                              <Component id="jLabel43" min="-2" pref="66" max="-2" attributes="0"/>
+                                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                              <Component id="sTelevision" min="-2" pref="87" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Group type="102" alignment="0" attributes="0">
+                                                              <Component id="jLabel20" min="-2" pref="66" max="-2" attributes="0"/>
+                                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                              <Component id="sTableware" min="-2" pref="87" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Group type="102" alignment="0" attributes="0">
+                                                              <Component id="jLabel40" min="-2" max="-2" attributes="0"/>
+                                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                              <Component id="sBasicProvisions" min="-2" pref="87" max="-2" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -1484,9 +1580,47 @@
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
-                                      <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="171" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel20" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Component id="jLabel37" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Component id="sFridge" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="sTableware" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel42" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Component id="jLabel39" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Component id="sMicrowave" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="sCookware" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel40" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Component id="jLabel44" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Component id="sOven" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="sBasicProvisions" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel38" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Component id="jLabel41" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Component id="sStove" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="sWifi" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel43" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Component id="jLabel46" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Component id="sDishwasher" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="sTelevision" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel45" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Component id="sSatelite" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace pref="123" max="32767" attributes="0"/>
                                       <Component id="jButton3" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
@@ -1494,68 +1628,97 @@
                             </DimensionLayout>
                           </Layout>
                           <SubComponents>
-                            <Component class="javax.swing.JLabel" name="jLabel20">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Page3"/>
-                              </Properties>
-                            </Component>
                             <Component class="javax.swing.JButton" name="jButton3">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Next"/>
-                              </Properties>
-                              <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
-                              </Events>
-                            </Component>
-                          </SubComponents>
-                        </Container>
-                        <Container class="javax.swing.JPanel" name="jPanel6">
-                          <Properties>
-                            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                              <Dimension value="[663, 422]"/>
-                            </Property>
-                          </Properties>
-
-                          <Layout>
-                            <DimensionLayout dim="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="293" max="-2" attributes="0"/>
-                                      <Component id="jLabel21" min="-2" pref="40" max="-2" attributes="0"/>
-                                      <EmptySpace pref="308" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jButton4" min="-2" pref="73" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                            <DimensionLayout dim="1">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
-                                      <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="165" max="32767" attributes="0"/>
-                                      <Component id="jButton4" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                            </DimensionLayout>
-                          </Layout>
-                          <SubComponents>
-                            <Component class="javax.swing.JLabel" name="jLabel21">
-                              <Properties>
-                                <Property name="text" type="java.lang.String" value="Page 4"/>
-                              </Properties>
-                            </Component>
-                            <Component class="javax.swing.JButton" name="jButton4">
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Submit"/>
                               </Properties>
                               <Events>
-                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+                                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton3MouseClicked"/>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
                               </Events>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel20">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Tableware"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel37">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Fridge"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel38">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Wifi"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel39">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Cookware"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel40">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Basic Provisions"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel41">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Stove"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel42">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Microwave"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel43">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Television"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel45">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Satelite"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel44">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Oven"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel46">
+                              <Properties>
+                                <Property name="text" type="java.lang.String" value="Dishwasher"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="sFridge">
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sFridgeActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="sMicrowave">
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="sOven">
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="sStove">
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="sDishwasher">
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="sSatelite">
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="sTableware">
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sTablewareActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="sCookware">
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="sBasicProvisions">
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="sWifi">
+                            </Component>
+                            <Component class="javax.swing.JCheckBox" name="sTelevision">
                             </Component>
                           </SubComponents>
                         </Container>
@@ -1575,12 +1738,12 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="702" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="788" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="488" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="527" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>
