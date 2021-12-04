@@ -48,8 +48,8 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         rawPasswordSignIn = new javax.swing.JPasswordField();
         signIn = new javax.swing.JButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        loginAsUserRB = new javax.swing.JRadioButton();
+        loginAsHostRB = new javax.swing.JRadioButton();
         SignUp = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -285,19 +285,19 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("Login to User Dashboard");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(loginAsUserRB);
+        loginAsUserRB.setText("Login to User Dashboard");
+        loginAsUserRB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                loginAsUserRBActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("Login in to Host Dashboard");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(loginAsHostRB);
+        loginAsHostRB.setText("Login in to Host Dashboard");
+        loginAsHostRB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                loginAsHostRBActionPerformed(evt);
             }
         });
 
@@ -324,9 +324,8 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                                 .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(emailSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(rawPasswordSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jRadioButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jRadioButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)))))
+                            .addComponent(loginAsUserRB)
+                            .addComponent(loginAsHostRB))))
                 .addContainerGap(207, Short.MAX_VALUE))
         );
         LoginLayout.setVerticalGroup(
@@ -343,9 +342,9 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(rawPasswordSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jRadioButton1)
+                .addComponent(loginAsUserRB)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton2)
+                .addComponent(loginAsHostRB)
                 .addGap(9, 9, 9)
                 .addComponent(signIn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(344, Short.MAX_VALUE))
@@ -737,7 +736,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                                     .addComponent(jScrollPane14)
                                     .addComponent(jLabel56, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(142, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1091,7 +1090,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                             .addComponent(jScrollPane3)
                             .addComponent(sGeneralLocation)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 271, Short.MAX_VALUE))
+                .addGap(0, 183, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1116,7 +1115,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jCheckBox37)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
                 .addComponent(next1)
                 .addContainerGap())
         );
@@ -2312,10 +2311,10 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 //Logger.getLogger(HomeBreaksPLC_GUI.class.getName()).log(Level.SEVERE, null, ex);
                 showMessageDialog(null, "OOPS! Something Went Wrong");
             }
-/*
+
             if(verifyCredentials) {
                 showMessageDialog(null, "Sign In Successful");
-                if(loginAsHost.isSelected()){
+                if(loginAsHostRB.isSelected()){
                     try {
                         signInValidators.setSignInType(EMAIL, "TRUE");
                         validatedEmail = EMAIL;
@@ -2338,7 +2337,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_signInActionPerformed
-*/
+
     private void rawPasswordSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rawPasswordSignInActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rawPasswordSignInActionPerformed
@@ -2789,13 +2788,13 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void loginAsUserRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginAsUserRBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_loginAsUserRBActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void loginAsHostRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginAsHostRBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_loginAsHostRBActionPerformed
 
       
     /**
@@ -2971,8 +2970,6 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -3021,6 +3018,8 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JLayeredPane layeredPane;
     private javax.swing.JList<String> listOfProperties;
+    private javax.swing.JRadioButton loginAsHostRB;
+    private javax.swing.JRadioButton loginAsUserRB;
     private javax.swing.JButton lookUpProperty;
     private javax.swing.JTabbedPane mainUserPanel;
     private javax.swing.JLabel maxGuests;
