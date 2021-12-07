@@ -12,9 +12,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.DateTimeException;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import static java.util.concurrent.TimeUnit.DAYS;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static javax.swing.JOptionPane.showMessageDialog;
@@ -83,18 +85,18 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         jLayeredPane2 = new javax.swing.JLayeredPane();
         jPanel10 = new javax.swing.JPanel();
         jLabel43 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        generalLocEnquiry = new javax.swing.JTextField();
         jLabel51 = new javax.swing.JLabel();
         jComboBox7 = new javax.swing.JComboBox<>();
         jComboBox9 = new javax.swing.JComboBox<>();
         jComboBox8 = new javax.swing.JComboBox<>();
+        jComboBox12 = new javax.swing.JComboBox<>();
         jComboBox10 = new javax.swing.JComboBox<>();
         jComboBox11 = new javax.swing.JComboBox<>();
-        jComboBox12 = new javax.swing.JComboBox<>();
         jLabel52 = new javax.swing.JLabel();
         enquireWOSignIn = new javax.swing.JButton();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        tableShowResults = new javax.swing.JTable();
         jSpinner1 = new javax.swing.JSpinner();
         jButton3 = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
@@ -295,6 +297,15 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         jList1 = new javax.swing.JList<>();
         jScrollPane18 = new javax.swing.JScrollPane();
         jList2 = new javax.swing.JList<>();
+        userDashboard = new javax.swing.JPanel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
+        jLabel72 = new javax.swing.JLabel();
+        jLabel73 = new javax.swing.JLabel();
+        jScrollPane16 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel74 = new javax.swing.JLabel();
+        jLabel75 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -367,7 +378,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                                     .addComponent(rawPasswordSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(loginAsUserRB)
                             .addComponent(loginAsHostRB))))
-                .addContainerGap(207, Short.MAX_VALUE))
+                .addContainerGap(286, Short.MAX_VALUE))
         );
         LoginLayout.setVerticalGroup(
             LoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -491,7 +502,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                     .addGroup(SignUpLayout.createSequentialGroup()
                         .addGap(237, 237, 237)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(259, Short.MAX_VALUE))
+                .addContainerGap(342, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SignUpLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(signUp, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -536,30 +547,32 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                     .addComponent(jLabel12))
                 .addGap(38, 38, 38)
                 .addComponent(signUp, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap(161, Short.MAX_VALUE))
         );
 
         mainUserPanel.addTab("User Sign-Up", SignUp);
 
         jLabel43.setText("General Location");
 
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        generalLocEnquiry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                generalLocEnquiryActionPerformed(evt);
             }
         });
 
         jLabel51.setText("Start Date");
 
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2022" }));
 
-        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 
-        jComboBox11.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox12.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2022" }));
 
-        jComboBox12.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+
+        jComboBox11.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 
         jLabel52.setText("End Date");
 
@@ -570,22 +583,19 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
             }
         });
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        tableShowResults.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "Serial Number", "Short Name", "Breakfast", "Max Guests", "Total Price"
+                "Serial Number", "Short Name", "Breakfast", "Max Guests", "Total Price", "SuperHost"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Boolean.class, java.lang.Integer.class, java.lang.Float.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Boolean.class, java.lang.Integer.class, java.lang.Float.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -596,7 +606,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane8.setViewportView(jTable4);
+        jScrollPane8.setViewportView(tableShowResults);
 
         jButton3.setText("Show Details");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -612,39 +622,39 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addGap(180, 180, 180)
+                        .addComponent(enquireWOSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox12, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(26, 26, 26)
+                                .addGap(10, 10, 10)
                                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel10Layout.createSequentialGroup()
-                                        .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(26, 26, 26)
+                                        .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(enquireWOSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(208, Short.MAX_VALUE))
+                                        .addComponent(jComboBox12, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(jPanel10Layout.createSequentialGroup()
+                                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                                .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(generalLocEnquiry)))))
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -652,7 +662,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(generalLocEnquiry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -662,18 +672,18 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addComponent(enquireWOSignIn)
-                .addGap(45, 45, 45)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addComponent(enquireWOSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(171, Short.MAX_VALUE))
+                .addGap(72, 72, 72))
         );
 
         jPanel11.setPreferredSize(new java.awt.Dimension(704, 545));
@@ -775,7 +785,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                                     .addComponent(jScrollPane14)
                                     .addComponent(jLabel56, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(142, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -810,7 +820,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton7)
                     .addComponent(jButton8))
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
 
         jLabel59.setText("Email");
@@ -848,43 +858,45 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap(95, Short.MAX_VALUE)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel59, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
-                            .addComponent(jLabel60, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
-                            .addComponent(jLabel65, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel63, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel64, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel62, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel12Layout.createSequentialGroup()
-                                .addGap(45, 45, 45)
-                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(rawPasswordSignIn1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(emailSignIn1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel12Layout.createSequentialGroup()
-                                .addGap(117, 117, 117)
-                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel68, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel69, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addGap(85, 85, 85))
             .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGap(251, 251, 251)
-                .addComponent(jLabel61)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel12Layout.createSequentialGroup()
+                            .addGap(160, 160, 160)
+                            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel59, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel60, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel65, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel63, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel64, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel12Layout.createSequentialGroup()
+                                    .addGap(45, 45, 45)
+                                    .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(rawPasswordSignIn1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(emailSignIn1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel12Layout.createSequentialGroup()
+                                    .addGap(117, 117, 117)
+                                    .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel68, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel69, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jButton9)))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(345, 345, 345)
+                        .addComponent(jLabel61)))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel66))
@@ -900,7 +912,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel65, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel69))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel59)
                     .addComponent(emailSignIn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -910,7 +922,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                     .addComponent(rawPasswordSignIn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
 
         jLayeredPane2.setLayer(jPanel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -927,14 +939,13 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, 812, Short.MAX_VALUE)
+                    .addContainerGap()))
             .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap()
+                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         jLayeredPane2Layout.setVerticalGroup(
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -944,14 +955,14 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap()
+                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
+                    .addContainerGap()))
             .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap()
+                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         javax.swing.GroupLayout EnquireLayout = new javax.swing.GroupLayout(Enquire);
@@ -960,15 +971,15 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
             EnquireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(EnquireLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 704, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         EnquireLayout.setVerticalGroup(
             EnquireLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(EnquireLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         mainUserPanel.addTab("Enquire Properties", Enquire);
@@ -1105,7 +1116,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 90, Short.MAX_VALUE)
+                .addGap(0, 98, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1163,7 +1174,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                         .addComponent(jScrollPane1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(deleteListing)))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("All Current Listings", jPanel1);
@@ -2177,7 +2188,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addGap(0, 90, Short.MAX_VALUE)
+                .addGap(0, 39, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jSeparator12)
                     .addComponent(jSeparator14)
@@ -2372,6 +2383,11 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         jLabel44.setText("All Properties ");
 
         jButton6.setText("Show Requests");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton13.setText("Approve Booking ");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -2396,7 +2412,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                     .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jButton13)
@@ -2441,8 +2457,97 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel45.setText("User Dashboard");
+
+        jLabel58.setText("Confidential Address");
+
+        jLabel72.setText("-");
+
+        jLabel73.setText("Bookings");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Property Name", "Status ", "Town/City", "Start Date", "End Date", "Total Price"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                true, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane16.setViewportView(jTable1);
+
+        jLabel74.setText("User Id");
+
+        jLabel75.setText("-");
+
+        javax.swing.GroupLayout userDashboardLayout = new javax.swing.GroupLayout(userDashboard);
+        userDashboard.setLayout(userDashboardLayout);
+        userDashboardLayout.setHorizontalGroup(
+            userDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userDashboardLayout.createSequentialGroup()
+                .addContainerGap(117, Short.MAX_VALUE)
+                .addGroup(userDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(userDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel73, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, userDashboardLayout.createSequentialGroup()
+                            .addGap(255, 255, 255)
+                            .addComponent(jLabel45))
+                        .addComponent(jLabel58, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addGroup(userDashboardLayout.createSequentialGroup()
+                        .addComponent(jLabel74, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel72, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(118, 118, 118))
+            .addGroup(userDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(userDashboardLayout.createSequentialGroup()
+                    .addGap(127, 127, 127)
+                    .addComponent(jLabel75, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(108, 108, 108)))
+        );
+        userDashboardLayout.setVerticalGroup(
+            userDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(userDashboardLayout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addGroup(userDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel74, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel72, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addComponent(jLabel73, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(207, Short.MAX_VALUE))
+            .addGroup(userDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userDashboardLayout.createSequentialGroup()
+                    .addContainerGap(472, Short.MAX_VALUE)
+                    .addComponent(jLabel75, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(145, 145, 145)))
+        );
+
         layeredPane.setLayer(signUpPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         layeredPane.setLayer(hostJarvis, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        layeredPane.setLayer(userDashboard, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layeredPaneLayout = new javax.swing.GroupLayout(layeredPane);
         layeredPane.setLayout(layeredPaneLayout);
@@ -2457,6 +2562,11 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                     .addGap(16, 16, 16)
                     .addComponent(hostJarvis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
+            .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layeredPaneLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(userDashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         layeredPaneLayout.setVerticalGroup(
             layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2468,6 +2578,11 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 .addGroup(layeredPaneLayout.createSequentialGroup()
                     .addGap(16, 16, 16)
                     .addComponent(hostJarvis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+            .addGroup(layeredPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layeredPaneLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(userDashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -2527,6 +2642,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                         validatedHost = true;
                         signUpPanel.setVisible(false);
                         hostJarvis.setVisible(true);
+                        userDashboard.setVisible(false);
                     } catch (Exception ex) {
                         //Logger.getLogger(HomeBreaksPLC_GUI.class.getName()).log(Level.SEVERE, null, ex);
                         validatedEmail = EMAIL;
@@ -2535,7 +2651,9 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                     }
                 }
                 else{
-                    showMessageDialog(null, "Signed in as Guest");
+                    signUpPanel.setVisible(false);
+                    hostJarvis.setVisible(false);
+                    userDashboard.setVisible(true);
                 }
             }
             else{
@@ -3174,12 +3292,131 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         jPanel9.setVisible(false);
     }//GEN-LAST:event_back5ActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void generalLocEnquiryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generalLocEnquiryActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_generalLocEnquiryActionPerformed
 
     private void enquireWOSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enquireWOSignInActionPerformed
+        int ssDay;
+        int ssMonth;
+        int ssYear;
+        int eeDay;
+        int eeMonth;
+        int eeYear;
+        LocalDate startDate;
+        LocalDate endDate;
+        Connection con = null;
+        Statement stmt = null;
+        ArrayList<String> propsGenLoc = new ArrayList<String>();
+        ArrayList<Integer> availProps = new ArrayList<Integer>();
+        
+        try{
+            ssDay = Integer.parseInt((String) jComboBox7.getSelectedItem());
+            ssMonth = Integer.parseInt((String) jComboBox8.getSelectedItem());
+            ssYear = Integer.parseInt((String) jComboBox9.getSelectedItem());
+            startDate = LocalDate.of(ssYear, ssMonth, ssDay);
 
+            eeDay = Integer.parseInt((String) jComboBox10.getSelectedItem());
+            eeMonth = Integer.parseInt((String) jComboBox11.getSelectedItem());
+            eeYear = Integer.parseInt((String) jComboBox12.getSelectedItem());
+            endDate = LocalDate.of(eeYear, eeMonth, eeDay);
+            
+            if(startDate.isBefore(endDate)){
+                try {
+                    System.out.println("Connection Opened");
+                    con = DriverManager.getConnection(
+                            "jdbc:mysql://stusql.dcs.shef.ac.uk/team015",
+                            "team015",
+                            "ea4da4e8"
+                    );
+
+                    stmt = con.createStatement();
+                    String runQuery = ("SELECT * FROM propertyMainData WHERE"
+                            + " generalLoc = '" + generalLocEnquiry.getText() + "'").toString();
+                    System.out.println(runQuery);
+                    System.out.println("Query Processed!");
+                    ResultSet res = stmt.executeQuery(runQuery);
+
+                    while(res.next()){
+                        propsGenLoc.add((res.getString(1) + "@@@@@" + String.valueOf(res.getInt(2)) + "@@@@@" + 
+                                res.getString(3) + "@@@@@" + res.getString(4) + "@@@@@" +
+                                String.valueOf(res.getInt(7)) + "@@@@@" + String.valueOf(res.getInt(8)) + "@@@@@" + 
+                                String.valueOf(res.getFloat(9)) + "@@@@@" + String.valueOf(res.getFloat(10)) + "@@@@@" +
+                                String.valueOf(res.getFloat(11))).toString());
+                    }
+                    res.close();
+                    
+                    for(int i = 0; i < propsGenLoc.size(); i++){
+                        String [] result1 = propsGenLoc.get(i).split("@@@@@");
+                        runQuery = ("SELECT startDate, endDate FROM bookings" + 
+                                " WHERE hostID = '" + result1[0] + 
+                                "' AND " + "propertyID = " + 
+                                result1[1] + 
+                                " AND confirmed = FALSE").toString();
+                        System.out.println(runQuery);
+                        System.out.println("Done");
+                        
+                        ResultSet res2 = stmt.executeQuery(runQuery);
+                        while(res2.next()){
+                            String dateStart = res2.getString(1);
+                            String dateEnd = res2.getString(2);
+                            LocalDate dateStartFormatted = LocalDate.of(
+                                    Integer.valueOf(dateStart.split("-")[0]), 
+                                    Integer.valueOf(dateStart.split("-")[1]), 
+                                    Integer.valueOf(dateStart.split("-")[2])
+                            );
+                            LocalDate dateEndFormatted = LocalDate.of(
+                                    Integer.valueOf(dateEnd.split("-")[0]), 
+                                    Integer.valueOf(dateEnd.split("-")[1]), 
+                                    Integer.valueOf(dateEnd.split("-")[2])
+                            );
+                            int checker = 0;
+                            for(int j = 0; j < Duration.between(startDate, endDate).toDays(); j++){
+                                if(startDate.plusDays(j).isAfter(dateStartFormatted) 
+                                        && startDate.plusDays(j).isBefore(dateEndFormatted)){
+                                    checker = 1;
+                                }
+                            }
+                            if(checker == 0){
+                                availProps.add(i);
+                            }
+                        }
+                        res2.close();
+                    }
+                    for(int i = 0; i < availProps.size(); i++){
+                        DefaultTableModel rowModel = (DefaultTableModel) tableShowResults.getModel();
+                        int index = availProps.get(i);
+                        Object [] row1 = {
+                            rowModel.getRowCount()
+                        };
+                        //rowModel.addRow(row1);
+                        System.out.println(availProps.get(index));
+                    }
+                }
+                catch (SQLException ex){
+                    ex.printStackTrace();
+                }
+                finally {
+                    if(con != null) try {
+                        con.close();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(HomeBreaksPLC_GUI.class.getName()).log(Level.SEVERE, null, ex);
+                    }System.out.println("Connection Closed");
+                    if(stmt != null) try {
+                        stmt.close();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(HomeBreaksPLC_GUI.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+            else{
+                showMessageDialog(null, "Start Date must be before End Date");
+            }
+        }
+        catch(Exception ea){
+            System.out.println(ea);
+            showMessageDialog(null, "OOPS! Something Went Wrong");
+        }
     }//GEN-LAST:event_enquireWOSignInActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -3291,6 +3528,39 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton13ActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        /* Connection con = null;
+        Statement stmt = null;
+
+        try {
+            System.out.println("Connection Opened");
+            con = DriverManager.getConnection(
+                    "jdbc:mysql://stusql.dcs.shef.ac.uk/team015",
+                    "team015",
+                    "ea4da4e8"
+            );
+
+            stmt = con.createStatement();
+            String runQuery = ("SELECT shortName, propertyID FROM propertyMainData WHERE hostID = '" + email + "'").toString();
+            System.out.println("Query Processed!");
+            ResultSet res = stmt.executeQuery(runQuery);
+            
+            while(res.next()){
+                propertyArrays.add(res.getString(1) + " @ " + res.getInt(2));
+            }
+            
+            res.close();
+        }
+        catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        finally {
+            if(con != null) con.close();System.out.println("Connection Closed");
+            if(stmt != null) stmt.close();
+        }
+        */
+    }//GEN-LAST:event_jButton6ActionPerformed
+
       
     /**
      * @param args the command line arguments
@@ -3360,6 +3630,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JTextField emailSignIn1;
     private javax.swing.JButton enquireWOSignIn;
     private javax.swing.JTextField forename;
+    private javax.swing.JTextField generalLocEnquiry;
     private javax.swing.JPanel hostJarvis;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -3445,6 +3716,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
@@ -3458,6 +3730,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
@@ -3473,6 +3746,10 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel73;
+    private javax.swing.JLabel jLabel74;
+    private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
@@ -3497,6 +3774,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
+    private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane17;
     private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane2;
@@ -3523,14 +3801,13 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable4;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextArea jTextArea5;
     private javax.swing.JTextArea jTextArea6;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JLayeredPane layeredPane;
     private javax.swing.JList<String> listOfProperties;
     private javax.swing.JRadioButton loginAsHostRB;
@@ -3578,6 +3855,8 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JButton signUp;
     private javax.swing.JPanel signUpPanel;
     private javax.swing.JTextField surname;
+    private javax.swing.JTable tableShowResults;
     private javax.swing.JComboBox<String> title;
+    private javax.swing.JPanel userDashboard;
     // End of variables declaration//GEN-END:variables
 }
