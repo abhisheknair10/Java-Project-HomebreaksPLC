@@ -15,7 +15,9 @@ import java.time.DateTimeException;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import static java.util.concurrent.TimeUnit.DAYS;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -620,46 +622,47 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(21, 21, 21)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(180, 180, 180)
+                        .addGap(170, 170, 170)
                         .addComponent(enquireWOSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel10Layout.createSequentialGroup()
+                            .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(26, 26, 26)
+                            .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jComboBox12, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel10Layout.createSequentialGroup()
+                            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel10Layout.createSequentialGroup()
+                                    .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(generalLocEnquiry, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel10Layout.createSequentialGroup()
-                                        .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(26, 26, 26)
-                                        .addComponent(jComboBox10, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jComboBox11, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jComboBox12, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(jPanel10Layout.createSequentialGroup()
-                                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                                .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(generalLocEnquiry)))))
-                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(92, Short.MAX_VALUE))
+                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(156, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(41, 41, 41)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(generalLocEnquiry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -677,13 +680,13 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                     .addComponent(jComboBox12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(enquireWOSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(29, 29, 29)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(72, 72, 72))
+                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(53, 53, 53))
         );
 
         jPanel11.setPreferredSize(new java.awt.Dimension(704, 545));
@@ -3292,139 +3295,6 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         jPanel9.setVisible(false);
     }//GEN-LAST:event_back5ActionPerformed
 
-    private void generalLocEnquiryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generalLocEnquiryActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_generalLocEnquiryActionPerformed
-
-    private void enquireWOSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enquireWOSignInActionPerformed
-        int ssDay;
-        int ssMonth;
-        int ssYear;
-        int eeDay;
-        int eeMonth;
-        int eeYear;
-        LocalDate startDate;
-        LocalDate endDate;
-        Connection con = null;
-        Statement stmt = null;
-        ArrayList<String> propsGenLoc = new ArrayList<String>();
-        ArrayList<Integer> availProps = new ArrayList<Integer>();
-        
-        try{
-            ssDay = Integer.parseInt((String) jComboBox7.getSelectedItem());
-            ssMonth = Integer.parseInt((String) jComboBox8.getSelectedItem());
-            ssYear = Integer.parseInt((String) jComboBox9.getSelectedItem());
-            startDate = LocalDate.of(ssYear, ssMonth, ssDay);
-
-            eeDay = Integer.parseInt((String) jComboBox10.getSelectedItem());
-            eeMonth = Integer.parseInt((String) jComboBox11.getSelectedItem());
-            eeYear = Integer.parseInt((String) jComboBox12.getSelectedItem());
-            endDate = LocalDate.of(eeYear, eeMonth, eeDay);
-            
-            if(startDate.isBefore(endDate)){
-                try {
-                    System.out.println("Connection Opened");
-                    con = DriverManager.getConnection(
-                            "jdbc:mysql://stusql.dcs.shef.ac.uk/team015",
-                            "team015",
-                            "ea4da4e8"
-                    );
-
-                    stmt = con.createStatement();
-                    String runQuery = ("SELECT * FROM propertyMainData WHERE"
-                            + " generalLoc = '" + generalLocEnquiry.getText() + "'").toString();
-                    System.out.println(runQuery);
-                    System.out.println("Query Processed!");
-                    ResultSet res = stmt.executeQuery(runQuery);
-
-                    while(res.next()){
-                        propsGenLoc.add((res.getString(1) + "@@@@@" + String.valueOf(res.getInt(2)) + "@@@@@" + 
-                                res.getString(3) + "@@@@@" + res.getString(4) + "@@@@@" +
-                                String.valueOf(res.getInt(7)) + "@@@@@" + String.valueOf(res.getInt(8)) + "@@@@@" + 
-                                String.valueOf(res.getFloat(9)) + "@@@@@" + String.valueOf(res.getFloat(10)) + "@@@@@" +
-                                String.valueOf(res.getFloat(11))).toString());
-                    }
-                    res.close();
-                    
-                    for(int i = 0; i < propsGenLoc.size(); i++){
-                        String [] result1 = propsGenLoc.get(i).split("@@@@@");
-                        runQuery = ("SELECT startDate, endDate FROM bookings" + 
-                                " WHERE hostID = '" + result1[0] + 
-                                "' AND " + "propertyID = " + 
-                                result1[1] + 
-                                " AND confirmed = FALSE").toString();
-                        System.out.println(runQuery);
-                        System.out.println("Done");
-                        
-                        ResultSet res2 = stmt.executeQuery(runQuery);
-                        while(res2.next()){
-                            String dateStart = res2.getString(1);
-                            String dateEnd = res2.getString(2);
-                            LocalDate dateStartFormatted = LocalDate.of(
-                                    Integer.valueOf(dateStart.split("-")[0]), 
-                                    Integer.valueOf(dateStart.split("-")[1]), 
-                                    Integer.valueOf(dateStart.split("-")[2])
-                            );
-                            LocalDate dateEndFormatted = LocalDate.of(
-                                    Integer.valueOf(dateEnd.split("-")[0]), 
-                                    Integer.valueOf(dateEnd.split("-")[1]), 
-                                    Integer.valueOf(dateEnd.split("-")[2])
-                            );
-                            int checker = 0;
-                            for(int j = 0; j < Duration.between(startDate, endDate).toDays(); j++){
-                                if(startDate.plusDays(j).isAfter(dateStartFormatted) 
-                                        && startDate.plusDays(j).isBefore(dateEndFormatted)){
-                                    checker = 1;
-                                }
-                            }
-                            if(checker == 0){
-                                availProps.add(i);
-                            }
-                        }
-                        res2.close();
-                    }
-                    for(int i = 0; i < availProps.size(); i++){
-                        DefaultTableModel rowModel = (DefaultTableModel) tableShowResults.getModel();
-                        int index = availProps.get(i);
-                        Object [] row1 = {
-                            rowModel.getRowCount()
-                        };
-                        //rowModel.addRow(row1);
-                        System.out.println(availProps.get(index));
-                    }
-                }
-                catch (SQLException ex){
-                    ex.printStackTrace();
-                }
-                finally {
-                    if(con != null) try {
-                        con.close();
-                    } catch (SQLException ex) {
-                        Logger.getLogger(HomeBreaksPLC_GUI.class.getName()).log(Level.SEVERE, null, ex);
-                    }System.out.println("Connection Closed");
-                    if(stmt != null) try {
-                        stmt.close();
-                    } catch (SQLException ex) {
-                        Logger.getLogger(HomeBreaksPLC_GUI.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-            }
-            else{
-                showMessageDialog(null, "Start Date must be before End Date");
-            }
-        }
-        catch(Exception ea){
-            System.out.println(ea);
-            showMessageDialog(null, "OOPS! Something Went Wrong");
-        }
-    }//GEN-LAST:event_enquireWOSignInActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        jPanel10.setVisible(false);
-        jPanel11.setVisible(true);
-        jPanel12.setVisible(false);
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         jPanel10.setVisible(true);
         jPanel11.setVisible(false);
@@ -3561,6 +3431,140 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         */
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        jPanel10.setVisible(false);
+        jPanel11.setVisible(true);
+        jPanel12.setVisible(false);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void enquireWOSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enquireWOSignInActionPerformed
+        int ssDay;
+        int ssMonth;
+        int ssYear;
+        int eeDay;
+        int eeMonth;
+        int eeYear;
+        LocalDate startDate;
+        LocalDate endDate;
+        Connection con = null;
+        Statement stmt = null;
+        ArrayList<String> propsGenLoc = new ArrayList<String>();
+        ArrayList<Integer> availProps = new ArrayList<Integer>();
+
+        try{
+            ssDay = Integer.parseInt((String) jComboBox7.getSelectedItem());
+            ssMonth = Integer.parseInt((String) jComboBox8.getSelectedItem());
+            ssYear = Integer.parseInt((String) jComboBox9.getSelectedItem());
+            startDate = LocalDate.of(ssYear, ssMonth, ssDay);
+
+            eeDay = Integer.parseInt((String) jComboBox10.getSelectedItem());
+            eeMonth = Integer.parseInt((String) jComboBox11.getSelectedItem());
+            eeYear = Integer.parseInt((String) jComboBox12.getSelectedItem());
+            endDate = LocalDate.of(eeYear, eeMonth, eeDay);
+
+            if(startDate.isBefore(endDate)){
+                try {
+                    System.out.println("Connection Opened");
+                    con = DriverManager.getConnection(
+                        "jdbc:mysql://stusql.dcs.shef.ac.uk/team015",
+                        "team015",
+                        "ea4da4e8"
+                    );
+
+                    stmt = con.createStatement();
+                    String runQuery = ("SELECT * FROM propertyMainData WHERE"
+                        + " generalLoc = '" + generalLocEnquiry.getText() + "'").toString();
+                    System.out.println(runQuery);
+                    System.out.println("Query Processed!");
+                    ResultSet res = stmt.executeQuery(runQuery);
+
+                    while(res.next()){
+                        propsGenLoc.add((res.getString(1) + "@@@@@" + String.valueOf(res.getInt(2)) + "@@@@@" +
+                            res.getString(3) + "@@@@@" + res.getString(4) + "@@@@@" +
+                            String.valueOf(res.getInt(7)) + "@@@@@" + String.valueOf(res.getInt(8)) + "@@@@@" +
+                            String.valueOf(res.getFloat(9)) + "@@@@@" + String.valueOf(res.getFloat(10)) + "@@@@@" +
+                            String.valueOf(res.getFloat(11))).toString());
+                }
+                res.close();
+
+                for(int i = 0; i < propsGenLoc.size(); i++){
+                    String [] result1 = propsGenLoc.get(i).split("@@@@@");
+                    runQuery = ("SELECT startDate, endDate FROM bookings" +
+                        " WHERE hostID = '" + result1[0] +
+                        "' AND " + "propertyID = " +
+                        result1[1] +
+                        " AND confirmed = FALSE").toString();
+                    System.out.println(runQuery);
+
+                    ResultSet res2 = stmt.executeQuery(runQuery);
+                    while(res2.next()){
+                        String dateStart = String.valueOf(res2.getDate(1));
+                        String dateEnd = String.valueOf(res2.getDate(2));
+                        LocalDate dateStartFormatted = LocalDate.of(
+                            Integer.valueOf(dateStart.split("-")[0]),
+                            Integer.valueOf(dateStart.split("-")[1]),
+                            Integer.valueOf(dateStart.split("-")[2])
+                        );
+                        LocalDate dateEndFormatted = LocalDate.of(
+                            Integer.valueOf(dateEnd.split("-")[0]),
+                            Integer.valueOf(dateEnd.split("-")[1]),
+                            Integer.valueOf(dateEnd.split("-")[2])
+                        );
+                        int checker = 0;
+                        for(int j = 0; j < dateStartFormatted.until(dateEndFormatted, ChronoUnit.DAYS); j++){
+                            if(startDate.plusDays(j).isAfter(dateStartFormatted)
+                                && startDate.plusDays(j).isBefore(dateEndFormatted)){
+                                checker = 1;
+                            }
+                        }
+                        if(checker == 0){
+                            availProps.add(i);
+                        }
+                    }
+                    res2.close();
+                }
+                LinkedHashSet<Integer> hashSet = new LinkedHashSet<>(availProps);
+                ArrayList<Integer> listWoDups = new ArrayList<>(hashSet);
+                for(int k = 0; k < listWoDups.size(); k++){
+                    DefaultTableModel rowModel = (DefaultTableModel) tableShowResults.getModel();
+                    int index = availProps.get(k);
+                    Object [] row1 = {
+                        rowModel.getRowCount()
+                    };
+                    //rowModel.addRow(row1);
+                    System.out.println(propsGenLoc.get(listWoDups.get(k)));
+                }
+            }
+            catch (SQLException ex){
+                ex.printStackTrace();
+            }
+            finally {
+                if(con != null) try {
+                    con.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(HomeBreaksPLC_GUI.class.getName()).log(Level.SEVERE, null, ex);
+                }System.out.println("Connection Closed");
+                if(stmt != null) try {
+                    stmt.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(HomeBreaksPLC_GUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        else{
+            showMessageDialog(null, "Start Date must be before End Date");
+        }
+        }
+        catch(Exception ea){
+            System.out.println(ea);
+            showMessageDialog(null, "OOPS! Something Went Wrong");
+        }
+    }//GEN-LAST:event_enquireWOSignInActionPerformed
+
+    private void generalLocEnquiryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generalLocEnquiryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_generalLocEnquiryActionPerformed
+
       
     /**
      * @param args the command line arguments
@@ -3633,9 +3637,6 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JTextField generalLocEnquiry;
     private javax.swing.JPanel hostJarvis;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
