@@ -5,6 +5,15 @@
  */
 package GUI.project;
 
+import static GUI.project.signUpMethods.sha256HashingAlgorithm;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.time.DateTimeException;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -165,19 +174,19 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         sPropertyName = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        sPropertyDesctiption = new javax.swing.JTextArea();
+        sPropertyDescription = new javax.swing.JTextArea();
         jLabel28 = new javax.swing.JLabel();
         sGeneralLocation = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         sDetailedLocation = new javax.swing.JTextArea();
         jLabel47 = new javax.swing.JLabel();
-        jCheckBox37 = new javax.swing.JCheckBox();
+        breakfastBool = new javax.swing.JCheckBox();
         jLabel57 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        defaultPricePerNight = new javax.swing.JTextField();
         jLabel70 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        defaultServiceCharge = new javax.swing.JTextField();
+        defaultCleaningCharge = new javax.swing.JTextField();
         jLabel71 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         next2 = new javax.swing.JButton();
@@ -253,28 +262,28 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         jLabel38 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        sDay = new javax.swing.JComboBox<>();
         jLabel31 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        sMonth = new javax.swing.JComboBox<>();
         jLabel32 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        sYear = new javax.swing.JComboBox<>();
         jLabel33 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        eDay = new javax.swing.JComboBox<>();
         jLabel40 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<>();
+        eMonth = new javax.swing.JComboBox<>();
         jLabel41 = new javax.swing.JLabel();
-        jComboBox6 = new javax.swing.JComboBox<>();
+        eYear = new javax.swing.JComboBox<>();
         jSeparator12 = new javax.swing.JSeparator();
         jSeparator14 = new javax.swing.JSeparator();
         jLabel42 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel44 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel45 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        chargePerNight = new javax.swing.JTextField();
+        serviceChargeText = new javax.swing.JLabel();
+        serviceCharge = new javax.swing.JTextField();
+        cleaningChargeText = new javax.swing.JLabel();
+        cleaningCharge = new javax.swing.JTextField();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        chargeBandTable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -1172,9 +1181,9 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
 
         jLabel27.setText("Property Description ");
 
-        sPropertyDesctiption.setColumns(20);
-        sPropertyDesctiption.setRows(5);
-        jScrollPane3.setViewportView(sPropertyDesctiption);
+        sPropertyDescription.setColumns(20);
+        sPropertyDescription.setRows(5);
+        jScrollPane3.setViewportView(sPropertyDescription);
 
         jLabel28.setText("City/Town");
 
@@ -1194,7 +1203,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         jLabel47.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel47.setText("Main Property Details");
 
-        jCheckBox37.setText("Breakfast Provided");
+        breakfastBool.setText("Breakfast Provided");
 
         jLabel57.setText("Default Price per Night");
 
@@ -1209,16 +1218,16 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(78, 78, 78)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox37, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(breakfastBool, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                             .addComponent(jLabel71)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(defaultCleaningCharge, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                             .addComponent(jLabel57)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(defaultPricePerNight, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1234,7 +1243,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createSequentialGroup()
                             .addComponent(jLabel70)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(defaultServiceCharge, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(184, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1268,19 +1277,19 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jCheckBox37)
+                .addComponent(breakfastBool)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel57)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(defaultPricePerNight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel70)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(defaultServiceCharge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel71)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(defaultCleaningCharge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addComponent(next1)
                 .addContainerGap())
@@ -1297,7 +1306,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
 
         jLabel19.setText("Bed 1 Type ");
 
-        sBedType1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Double", "King", "Bunk", "None" }));
+        sBedType1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "single", "double", "king", "bunk", "none" }));
         sBedType1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sBedType1ActionPerformed(evt);
@@ -1338,7 +1347,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
 
         jLabel29.setText("Bed 2 Type ");
 
-        sBedType2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Double", "King", "Bunk", "None" }));
+        sBedType2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "single", "double", "king", "bunk", "none" }));
         sBedType2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sBedType2ActionPerformed(evt);
@@ -1359,7 +1368,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
 
         jLabel48.setText("Linens");
 
-        sLinens.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
+        sLinens.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TRUE", "FALSE" }));
         sLinens.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sLinensActionPerformed(evt);
@@ -1368,7 +1377,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
 
         jLabel49.setText("Towels");
 
-        sTowels.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No" }));
+        sTowels.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TRUE", "FALSE" }));
         sTowels.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sTowelsActionPerformed(evt);
@@ -1417,7 +1426,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                                         .addComponent(sTowels, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGap(72, 72, 72))
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(back1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1784,22 +1793,9 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(258, 258, 258)
-                        .addComponent(jLabel34))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox10)
-                            .addComponent(jCheckBox9)
-                            .addComponent(jCheckBox11))
-                        .addGap(116, 116, 116)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCheckBox13)
-                            .addComponent(jCheckBox12)
-                            .addComponent(jCheckBox14))))
-                .addGap(0, 229, Short.MAX_VALUE))
+                .addGap(258, 258, 258)
+                .addComponent(jLabel34)
+                .addGap(0, 350, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1816,14 +1812,26 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                         .addComponent(jCheckBox4)
                         .addGap(143, 143, 143)
                         .addComponent(jCheckBox8)))
-                .addGap(48, 48, 48))
+                .addGap(102, 102, 102))
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(123, 123, 123)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jCheckBox10)
+                    .addComponent(jCheckBox9)
+                    .addComponent(jCheckBox11))
+                .addGap(116, 116, 116)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jCheckBox13)
+                    .addComponent(jCheckBox12)
+                    .addComponent(jCheckBox14))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jLabel34)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(37, 37, 37)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckBox1)
                     .addComponent(jCheckBox5))
@@ -1839,13 +1847,13 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckBox4)
                     .addComponent(jCheckBox8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel35)
+                .addGap(28, 28, 28)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel35)
-                        .addGap(28, 28, 28)
                         .addComponent(jCheckBox9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jCheckBox10)
@@ -1857,7 +1865,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                         .addComponent(jCheckBox13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jCheckBox14)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(next4)
                     .addComponent(back3))
@@ -2083,43 +2091,43 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
 
         jLabel30.setText("Day");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        sDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
         jLabel31.setText("Month");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+        sMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 
         jLabel32.setText("Year");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2022" }));
+        sYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2022" }));
 
         jLabel33.setFont(new java.awt.Font(".SF NS Text", 0, 14)); // NOI18N
         jLabel33.setText("End Date");
 
         jLabel39.setText("Day");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        eDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
         jLabel40.setText("Month");
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+        eMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 
         jLabel41.setText("Year");
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2022" }));
+        eYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2022" }));
 
         jLabel42.setText("Charge per Night");
 
-        jLabel44.setText("Service Charge");
+        serviceChargeText.setText("Service Charge");
 
-        jLabel45.setText("Clearning Charge");
+        cleaningChargeText.setText("Cleaning Charge");
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        chargeBandTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Start Date", "End Date", "Charge/Night", "Service Charge", "Clearning"
+                "Start Date", "End Date", "Charge/Night", "Service Charge", "Cleaning Charge"
             }
         ) {
             Class[] types = new Class [] {
@@ -2130,11 +2138,21 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane7.setViewportView(jTable3);
+        jScrollPane7.setViewportView(chargeBandTable);
 
         jButton1.setText("Add");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Delete");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -2153,7 +2171,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addGap(0, 89, Short.MAX_VALUE)
+                .addGap(0, 90, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jSeparator12)
                     .addComponent(jSeparator14)
@@ -2161,19 +2179,19 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                         .addGroup(jPanel9Layout.createSequentialGroup()
                             .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jPanel9Layout.createSequentialGroup()
-                                    .addComponent(jLabel45)
+                                    .addComponent(cleaningChargeText)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(cleaningCharge, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel9Layout.createSequentialGroup()
                                     .addComponent(jLabel42)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(chargePerNight, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGap(18, 18, 18)
                             .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel9Layout.createSequentialGroup()
-                                    .addComponent(jLabel44)
+                                    .addComponent(serviceChargeText)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(serviceCharge, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                                     .addComponent(jButton1)
                                     .addGap(18, 18, 18)
@@ -2183,27 +2201,27 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addComponent(jLabel30)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(sDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(74, 74, 74)
                                 .addComponent(jLabel31)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(sMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(60, 60, 60)
                                 .addComponent(jLabel32)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(sYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                                 .addComponent(jLabel39)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(eDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(74, 74, 74)
                                 .addComponent(jLabel40)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(eMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(60, 60, 60)
                                 .addComponent(jLabel41)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(eYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel33)))
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 549, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(72, 72, 72))
@@ -2218,11 +2236,11 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel31)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel32)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator12, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2230,23 +2248,23 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel39)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(eDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel40)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(eMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel41)
-                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(eYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator14, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel42)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel44)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(chargePerNight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(serviceChargeText)
+                    .addComponent(serviceCharge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel45)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cleaningChargeText)
+                    .addComponent(cleaningCharge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
                 .addGap(27, 27, 27)
@@ -2719,26 +2737,26 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         String nlHairDryer = "";
         String nlShampoo = "";
         
-        if(sToilet.isSelected()){nlToilet = "Yes";}
-        else{nlToilet = "No";}
+        if(sToilet.isSelected()){nlToilet = "TRUE";}
+        else{nlToilet = "FALSE";}
         
-        if(sBath.isSelected()){nlBath = "Yes";}
-        else{nlBath = "No";}
+        if(sBath.isSelected()){nlBath = "TRUE";}
+        else{nlBath = "FALSE";}
         
-        if(sShower.isSelected()){nlShower = "Yes";}
-        else{nlShower = "No";}
+        if(sShower.isSelected()){nlShower = "TRUE";}
+        else{nlShower = "FALSE";}
         
-        if(sToiletPaper.isSelected()){nlToiletPaper = "Yes";}
-        else{nlToiletPaper = "No";}
+        if(sToiletPaper.isSelected()){nlToiletPaper = "TRUE";}
+        else{nlToiletPaper = "FALSE";}
         
-        if(sSharedBathroom.isSelected()){nlSharedBath = "Yes";}
-        else{nlSharedBath = "No";}
+        if(sSharedBathroom.isSelected()){nlSharedBath = "TRUE";}
+        else{nlSharedBath = "FALSE";}
         
-        if(sHairDryer.isSelected()){nlHairDryer = "Yes";}
-        else{nlHairDryer = "No";}
+        if(sHairDryer.isSelected()){nlHairDryer = "TRUE";}
+        else{nlHairDryer = "FALSE";}
         
-        if(sShampoo.isSelected()){nlShampoo = "Yes";}
-        else{nlShampoo = "No";}
+        if(sShampoo.isSelected()){nlShampoo = "TRUE";}
+        else{nlShampoo = "FALSE";}
         
         DefaultTableModel rowModel = (DefaultTableModel) bathDataTable.getModel();
         Object [] row1 = {rowModel.getRowCount()+1, nlToilet, nlBath, nlShower, nlToiletPaper, nlSharedBath, nlHairDryer, nlShampoo};
@@ -2944,7 +2962,148 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_next6MouseClicked
 
     private void next6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_next6ActionPerformed
-        // Submit New Listing
+        Connection con = null;
+        Statement stmt = null;
+
+        try {
+            System.out.println("Connection Opened");
+            con = DriverManager.getConnection(
+                    "jdbc:mysql://stusql.dcs.shef.ac.uk/team015",
+                    "team015",
+                    "ea4da4e8"
+            );
+                                    
+            
+            String ssPropertyName = sPropertyName.getText();
+            String ssPropertyDescription = sPropertyDescription.getText();
+            String ssGeneralLocation = sGeneralLocation.getText();
+            String ssDetailedLocation = sDetailedLocation.getText();
+            String breakfastProvided;
+            if(breakfastBool.isSelected()){breakfastProvided = "TRUE";}
+            else{breakfastProvided = "FALSE";}
+            
+            int sDefaultPricePerNight = Integer.parseInt(defaultPricePerNight.getText());
+            int sDefaultServiceCharge = Integer.parseInt(defaultServiceCharge.getText());
+            int sDefaultCleaningCharge = Integer.parseInt(defaultCleaningCharge.getText());
+            
+            stmt = con.createStatement();
+            String runQuery = "SELECT propertyID from propertyMainData WHERE hostID = '" + validatedEmail + "' ORDER BY propertyID DESC";
+            ResultSet res = stmt.executeQuery(runQuery);
+            int lastID = 0;
+            
+            if(res.next()){
+                lastID = (Integer) res.getInt(1);
+            }
+            lastID += 1;
+            
+            String statement = ("INSERT INTO propertyMainData VALUES ('" + validatedEmail + "', " + lastID + ", '" + 
+                    ssPropertyName + "', '" + ssPropertyDescription + "', '" + ssGeneralLocation + 
+                    "', '" + ssDetailedLocation + "', " + 0 + ", " + breakfastProvided + ", " + sDefaultPricePerNight + 
+                    ", " + sDefaultServiceCharge + ", " + sDefaultCleaningCharge + ")").toString();
+            stmt.executeUpdate(statement);
+            
+            for(int i = 0; i < sBedDataTable.getRowCount(); i+=2){
+                statement = ("INSERT INTO bedData VALUES ('" + validatedEmail + "', " + lastID + ", " + 
+                        Integer.parseInt((String) sBedDataTable.getModel().getValueAt(i, 0)) + ", '" + 
+                        (String) sBedDataTable.getModel().getValueAt(i, 2) + "', '" + 
+                        (String) sBedDataTable.getModel().getValueAt(i+1, 2) + "', " + 
+                        sBedDataTable.getModel().getValueAt(i, 3).toString() + ", " + 
+                        sBedDataTable.getModel().getValueAt(i, 4).toString() + ")").toString();
+                System.out.println(statement);
+                stmt.executeUpdate(statement);
+                System.out.println("Query Processed!");
+            }
+            
+            for(int i = 0; i < bathDataTable.getRowCount(); i++){
+                statement = ("INSERT INTO bathroomData VALUES ('" + validatedEmail + "', " + lastID + ", " + 
+                        bathDataTable.getModel().getValueAt(i, 0) + ", " + 
+                        (String) bathDataTable.getModel().getValueAt(i, 1) + ", " + 
+                        (String) bathDataTable.getModel().getValueAt(i, 2) + ", " + 
+                        (String) bathDataTable.getModel().getValueAt(i, 3) + ", " + 
+                        (String) bathDataTable.getModel().getValueAt(i, 4) + ", " + 
+                        (String) bathDataTable.getModel().getValueAt(i, 5) + ", " + 
+                        (String) bathDataTable.getModel().getValueAt(i, 6) + ", " + 
+                        (String) bathDataTable.getModel().getValueAt(i, 7) + ")").toString();
+                System.out.println(statement);
+                stmt.executeUpdate(statement);
+                System.out.println("Query Processed!");
+            }
+            
+            statement = ("INSERT INTO kitchen VALUES('" + validatedEmail + "', " + lastID + ", " +
+                    jCheckBox1.isSelected() + ", " + jCheckBox2.isSelected() + ", " + jCheckBox3.isSelected() + ", " +
+                    jCheckBox4.isSelected() + ", " + jCheckBox5.isSelected() + ", " + jCheckBox6.isSelected() + ", " + 
+                    jCheckBox7.isSelected() + ", " + jCheckBox8.isSelected() + ")").toString();
+            System.out.println(statement);
+            stmt.executeUpdate(statement);
+            System.out.println("Query Processed!");
+            
+            statement = ("INSERT INTO living VALUES('" + validatedEmail + "', " + lastID + ", " +
+                    jCheckBox9.isSelected() + ", " + jCheckBox10.isSelected() + ", " + jCheckBox11.isSelected() + ", " +
+                    jCheckBox12.isSelected() + ", " + jCheckBox13.isSelected() + ", " + jCheckBox14.isSelected() +
+                    ")").toString();
+            System.out.println(statement);
+            stmt.executeUpdate(statement);
+            System.out.println("Query Processed!");
+            
+            statement = ("INSERT INTO utility VALUES('" + validatedEmail + "', " + lastID + ", " +
+                    jCheckBox15.isSelected() + ", " + jCheckBox16.isSelected() + ", " + jCheckBox17.isSelected() + ", " +
+                    jCheckBox19.isSelected() + ", " + jCheckBox20.isSelected() + ", " +jCheckBox20.isSelected() + 
+                    ")").toString();
+            System.out.println(statement);
+            stmt.executeUpdate(statement);
+            System.out.println("Query Processed!");
+            
+            statement = ("INSERT INTO outdoor VALUES('" + validatedEmail + "', " + lastID + ", " +
+                    jCheckBox23.isSelected() + ", " + jCheckBox24.isSelected() + ", " + jCheckBox25.isSelected() + ", " + 
+                    jCheckBox26.isSelected() + ", " + jCheckBox27.isSelected() +
+                    ")").toString();
+            System.out.println(statement);
+            stmt.executeUpdate(statement);
+            System.out.println("Query Processed!");
+            
+            
+            sPropertyName.setText("");
+            sPropertyDescription.setText("");
+            sGeneralLocation.setText("");
+            sDetailedLocation.setText("");
+            breakfastBool.setSelected(false);
+            defaultPricePerNight.setText("");
+            defaultServiceCharge.setText("");
+            defaultCleaningCharge.setText("");
+            DefaultTableModel model = (DefaultTableModel)sBedDataTable.getModel(); 
+            for(int i = 0; i < sBedDataTable.getRowCount(); i+=2){
+                model.removeRow(i);
+            }
+            model = (DefaultTableModel)bathDataTable.getModel(); 
+            for(int i = 0; i < bathDataTable.getRowCount(); i+=2){
+                model.removeRow(i);
+            }
+            jCheckBox1.setSelected(false);jCheckBox2.setSelected(false);
+            jCheckBox3.setSelected(false);jCheckBox4.setSelected(false);
+            jCheckBox5.setSelected(false);jCheckBox6.setSelected(false);
+            jCheckBox7.setSelected(false);jCheckBox8.setSelected(false);
+            jCheckBox9.setSelected(false);jCheckBox10.setSelected(false);
+            jCheckBox11.setSelected(false);jCheckBox12.setSelected(false);
+            jCheckBox13.setSelected(false);jCheckBox14.setSelected(false);
+            jCheckBox15.setSelected(false);jCheckBox16.setSelected(false);
+            jCheckBox17.setSelected(false);jCheckBox19.setSelected(false);
+            jCheckBox20.setSelected(false);jCheckBox21.setSelected(false);
+            jCheckBox23.setSelected(false);jCheckBox24.setSelected(false);
+            jCheckBox25.setSelected(false);jCheckBox26.setSelected(false);
+            jCheckBox27.setSelected(false);
+        }
+        catch (SQLException ex){
+            ex.printStackTrace();
+            showMessageDialog(null, "Please Enter the fields in the correct format");
+        }
+        finally {
+            if(con != null) try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(HomeBreaksPLC_GUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            System.out.println("Connection Closed");
+        }
     }//GEN-LAST:event_next6ActionPerformed
 
     private void back5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back5ActionPerformed
@@ -3012,6 +3171,63 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_sDelBathActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int ssDay;
+        int ssMonth;
+        int ssYear;
+        int eeDay;
+        int eeMonth;
+        int eeYear;
+        LocalDate startDate;
+        LocalDate endDate;
+        
+        try{
+            ssDay = Integer.parseInt((String) sDay.getSelectedItem());
+            ssMonth = Integer.parseInt((String) sMonth.getSelectedItem());
+            ssYear = Integer.parseInt((String) sYear.getSelectedItem());
+            startDate = LocalDate.of(ssYear, ssMonth, ssDay);
+
+            eeDay = Integer.parseInt((String) eDay.getSelectedItem());
+            eeMonth = Integer.parseInt((String) eMonth.getSelectedItem());
+            eeYear = Integer.parseInt((String) eYear.getSelectedItem());
+            endDate = LocalDate.of(eeYear, eeMonth, eeDay);
+            
+            if(endDate.isAfter(startDate)){
+                try{
+                    int ChargePerNight = Integer.parseInt(chargePerNight.getText());
+                    int ServiceCharge = Integer.parseInt(serviceCharge.getText());
+                    int CleaningCharge = Integer.parseInt(cleaningCharge.getText());
+
+                    DefaultTableModel rowModel = (DefaultTableModel) chargeBandTable.getModel();
+                    Object [] row1 = {startDate.toString(), endDate.toString(), ChargePerNight, ServiceCharge, CleaningCharge};
+                    rowModel.addRow(row1);
+                }
+                catch(Exception e){
+                    System.out.println(e);
+                    showMessageDialog(null, "Please Enter an Integer Value");
+                }
+            }
+            else{
+                showMessageDialog(null, "Start Date must be before End Date");
+            }
+        }
+        catch(DateTimeException e) {
+            showMessageDialog(null, "Invalid Date");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        int rowCount = chargeBandTable.getRowCount();
+        System.out.println(rowCount);
+        
+        try {
+            ((DefaultTableModel)chargeBandTable.getModel()).removeRow(rowCount-1);
+        }
+        catch(Exception ex) {
+            showMessageDialog(null, "OOPS! Something Went Wrong");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
       
     /**
      * @param args the command line arguments
@@ -3060,11 +3276,22 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JTable bathDataTable;
     private javax.swing.JButton beginSearch;
     private javax.swing.JList<String> bookedDates;
+    private javax.swing.JCheckBox breakfastBool;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JTable chargeBandTable;
+    private javax.swing.JTextField chargePerNight;
+    private javax.swing.JTextField cleaningCharge;
+    private javax.swing.JLabel cleaningChargeText;
     private javax.swing.JTextField confAddress;
+    private javax.swing.JTextField defaultCleaningCharge;
+    private javax.swing.JTextField defaultPricePerNight;
+    private javax.swing.JTextField defaultServiceCharge;
     private javax.swing.JButton deleteListing;
     private javax.swing.JLabel detailedLoc;
     private javax.swing.JTextField displayName;
+    private javax.swing.JComboBox<String> eDay;
+    private javax.swing.JComboBox<String> eMonth;
+    private javax.swing.JComboBox<String> eYear;
     private javax.swing.JTextField email;
     private javax.swing.JTextField emailSignIn;
     private javax.swing.JTextField emailSignIn1;
@@ -3098,22 +3325,15 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox26;
     private javax.swing.JCheckBox jCheckBox27;
     private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox37;
     private javax.swing.JCheckBox jCheckBox4;
     private javax.swing.JCheckBox jCheckBox5;
     private javax.swing.JCheckBox jCheckBox6;
     private javax.swing.JCheckBox jCheckBox7;
     private javax.swing.JCheckBox jCheckBox8;
     private javax.swing.JCheckBox jCheckBox9;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox11;
     private javax.swing.JComboBox<String> jComboBox12;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JComboBox<String> jComboBox8;
     private javax.swing.JComboBox<String> jComboBox9;
@@ -3155,8 +3375,6 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
@@ -3231,7 +3449,6 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
@@ -3239,13 +3456,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea4;
     private javax.swing.JTextArea jTextArea5;
     private javax.swing.JTextArea jTextArea6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JLayeredPane layeredPane;
     private javax.swing.JList<String> listOfProperties;
     private javax.swing.JRadioButton loginAsHostRB;
@@ -3271,12 +3482,14 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JTable sBedDataTable;
     private javax.swing.JComboBox<String> sBedType1;
     private javax.swing.JComboBox<String> sBedType2;
+    private javax.swing.JComboBox<String> sDay;
     private javax.swing.JButton sDelBath;
     private javax.swing.JTextArea sDetailedLocation;
     private javax.swing.JTextField sGeneralLocation;
     private javax.swing.JCheckBox sHairDryer;
     private javax.swing.JComboBox<String> sLinens;
-    private javax.swing.JTextArea sPropertyDesctiption;
+    private javax.swing.JComboBox<String> sMonth;
+    private javax.swing.JTextArea sPropertyDescription;
     private javax.swing.JTextField sPropertyName;
     private javax.swing.JCheckBox sShampoo;
     private javax.swing.JCheckBox sSharedBathroom;
@@ -3284,6 +3497,9 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox sToilet;
     private javax.swing.JCheckBox sToiletPaper;
     private javax.swing.JComboBox<String> sTowels;
+    private javax.swing.JComboBox<String> sYear;
+    private javax.swing.JTextField serviceCharge;
+    private javax.swing.JLabel serviceChargeText;
     private javax.swing.JButton signIn;
     private javax.swing.JButton signUp;
     private javax.swing.JPanel signUpPanel;
