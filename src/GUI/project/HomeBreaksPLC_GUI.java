@@ -33,6 +33,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     
     public static String validatedEmail = "";
     public static boolean validatedHost = false;
+    ArrayList<String> userDashBoard = new ArrayList<String>();
             
 
     /**
@@ -169,6 +170,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         jSeparator8 = new javax.swing.JSeparator();
         jSeparator9 = new javax.swing.JSeparator();
         jSeparator10 = new javax.swing.JSeparator();
+        jButton11 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
@@ -298,14 +300,15 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         jScrollPane17 = new javax.swing.JScrollPane();
         listProvisional = new javax.swing.JList<>();
         userDashboard = new javax.swing.JPanel();
-        jLabel45 = new javax.swing.JLabel();
-        jLabel58 = new javax.swing.JLabel();
         jLabel72 = new javax.swing.JLabel();
         jLabel73 = new javax.swing.JLabel();
         jScrollPane16 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        userDashTable = new javax.swing.JTable();
         jLabel74 = new javax.swing.JLabel();
-        jLabel75 = new javax.swing.JLabel();
+        confAddressGuestDash = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        userDashboardMain = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1058,6 +1061,13 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
             }
         });
 
+        jButton11.setText("Logout and Back to Sign In");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1065,53 +1075,56 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jSeparator3)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel18)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(meanReview, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jSeparator2)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel17)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(detailedLoc, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel14)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(propertyName, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jSeparator4)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel22)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(noOfBedrooms, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel23)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(maxGuests, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jSeparator5)
-                        .addComponent(jLabel25)
-                        .addComponent(jScrollPane2)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton11)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(beginSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lookUpProperty, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(deleteListing, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jSeparator3)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel18)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(meanReview, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jSeparator2)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel17)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(detailedLoc, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel14)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(propertyName, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jSeparator4)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel22)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(noOfBedrooms, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel23)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(maxGuests, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jSeparator5)
+                                .addComponent(jLabel25)
+                                .addComponent(jScrollPane2)
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(beginSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lookUpProperty, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(deleteListing, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -1175,7 +1188,9 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                         .addComponent(jScrollPane1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(deleteListing)))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addComponent(jButton11)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("All Current Listings", jPanel1);
@@ -2462,30 +2477,23 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel45.setText("User Dashboard");
-
-        jLabel58.setText("Confidential Address");
-
         jLabel72.setText("-");
 
         jLabel73.setText("Bookings");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        userDashTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "Property Name", "Status ", "Town/City", "Start Date", "End Date", "Total Price"
+                "Property Name", "Status ", "Town/City", "Start Date", "End Date"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                true, false, false, false, false, false
+                true, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -2496,43 +2504,68 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane16.setViewportView(jTable1);
+        jScrollPane16.setViewportView(userDashTable);
 
         jLabel74.setText("User Id");
 
-        jLabel75.setText("-");
+        confAddressGuestDash.setText("-");
+
+        jButton6.setText("Logout and Back to Sign In");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jButton10.setText("Get Confidential Address");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
+        userDashboardMain.setText("User Dashboard");
+        userDashboardMain.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userDashboardMainActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout userDashboardLayout = new javax.swing.GroupLayout(userDashboard);
         userDashboard.setLayout(userDashboardLayout);
         userDashboardLayout.setHorizontalGroup(
             userDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userDashboardLayout.createSequentialGroup()
+            .addGroup(userDashboardLayout.createSequentialGroup()
                 .addContainerGap(117, Short.MAX_VALUE)
-                .addGroup(userDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(userDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel73, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, userDashboardLayout.createSequentialGroup()
-                            .addGap(255, 255, 255)
-                            .addComponent(jLabel45))
-                        .addComponent(jLabel58, javax.swing.GroupLayout.Alignment.LEADING))
-                    .addGroup(userDashboardLayout.createSequentialGroup()
-                        .addComponent(jLabel74, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel72, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(118, 118, 118))
+                .addGroup(userDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userDashboardLayout.createSequentialGroup()
+                        .addGroup(userDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton10)
+                            .addComponent(jButton6)
+                            .addGroup(userDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(userDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel73, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(userDashboardLayout.createSequentialGroup()
+                                    .addComponent(jLabel74, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel72, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(118, 118, 118))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userDashboardLayout.createSequentialGroup()
+                        .addComponent(userDashboardMain)
+                        .addGap(362, 362, 362))))
             .addGroup(userDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(userDashboardLayout.createSequentialGroup()
                     .addGap(127, 127, 127)
-                    .addComponent(jLabel75, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(confAddressGuestDash, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGap(108, 108, 108)))
         );
         userDashboardLayout.setVerticalGroup(
             userDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(userDashboardLayout.createSequentialGroup()
                 .addGap(87, 87, 87)
-                .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
+                .addComponent(userDashboardMain)
+                .addGap(18, 18, 18)
                 .addGroup(userDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel74, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel72, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2540,13 +2573,15 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 .addComponent(jLabel73, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(207, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(jButton10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addComponent(jButton6)
+                .addGap(87, 87, 87))
             .addGroup(userDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, userDashboardLayout.createSequentialGroup()
                     .addContainerGap(472, Short.MAX_VALUE)
-                    .addComponent(jLabel75, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(confAddressGuestDash, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(145, 145, 145)))
         );
 
@@ -2645,6 +2680,8 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                         signInValidators.setSignInType(EMAIL, "TRUE");
                         validatedEmail = EMAIL;
                         validatedHost = true;
+                        emailSignIn.setText("");
+                        rawPasswordSignIn.setText("");
                         signUpPanel.setVisible(false);
                         hostJarvis.setVisible(true);
                         userDashboard.setVisible(false);
@@ -2659,6 +2696,10 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                     signUpPanel.setVisible(false);
                     hostJarvis.setVisible(false);
                     userDashboard.setVisible(true);
+                    validatedEmail = EMAIL;
+                    emailSignIn.setText("");
+                    rawPasswordSignIn.setText("");
+                    userDashboardMainActionPerformed(evt);
                 }
             }
             else{
@@ -3427,7 +3468,14 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
             stmt.executeUpdate(runQuery);
             
             runQuery = ("DELETE FROM bookings WHERE "
-                    + "hostID = '" + validatedEmail + "' AND confirmed = FALSE AND ((DATE('" + selectedString.split(" -- ")[2] + "') >= startDate AND DATE('" + selectedString.split(" -- ")[2] + "') <= endDate) OR (DATE('" + selectedString.split(" -- ")[3] + "') >= startDate AND DATE('" + selectedString.split(" -- ")[3] + "') <= endDate) OR (DATE('" + selectedString.split(" -- ")[2] + "') <= startDate AND DATE('" + selectedString.split(" -- ")[3] + "') >= endDate))").toString();
+                    + "hostID = '" + validatedEmail + "' AND confirmed = FALSE AND ((DATE('" + 
+                    selectedString.split(" -- ")[2] + "') >= startDate AND DATE('" + 
+                    selectedString.split(" -- ")[2] + "') <= endDate) OR (DATE('" + 
+                    selectedString.split(" -- ")[3] + "') >= startDate AND DATE('" + 
+                    selectedString.split(" -- ")[3] + "') <= endDate) OR (DATE('" + 
+                    selectedString.split(" -- ")[2] + "') <= startDate AND DATE('" + 
+                    selectedString.split(" -- ")[3] + "') >= endDate))").toString();
+            
             System.out.println(runQuery);
             stmt.executeUpdate(runQuery);
         }
@@ -3571,55 +3619,6 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                             String.valueOf(res.getFloat(9)) + "@@@@@" + String.valueOf(res.getFloat(10)) + "@@@@@" +
                             String.valueOf(res.getFloat(11))).toString());
                     }
-                    res.close();
-
-                    for(int i = 0; i < propsGenLoc.size(); i++){
-                        String [] result1 = propsGenLoc.get(i).split("@@@@@");
-                        runQuery = ("SELECT startDate, endDate FROM bookings" +
-                            " WHERE hostID = '" + result1[0] +
-                            "' AND " + "propertyID = " +
-                            result1[1] +
-                            " AND confirmed = FALSE").toString();
-                        System.out.println(runQuery);
-
-                        ResultSet res2 = stmt.executeQuery(runQuery);
-                        while(res2.next()){
-                            String dateStart = String.valueOf(res2.getDate(1));
-                            String dateEnd = String.valueOf(res2.getDate(2));
-                            LocalDate dateStartFormatted = LocalDate.of(
-                                Integer.valueOf(dateStart.split("-")[0]),
-                                Integer.valueOf(dateStart.split("-")[1]),
-                                Integer.valueOf(dateStart.split("-")[2])
-                            );
-                            LocalDate dateEndFormatted = LocalDate.of(
-                                Integer.valueOf(dateEnd.split("-")[0]),
-                                Integer.valueOf(dateEnd.split("-")[1]),
-                                Integer.valueOf(dateEnd.split("-")[2])
-                            );
-                            int checker = 0;
-                            for(int j = 0; j < dateStartFormatted.until(dateEndFormatted, ChronoUnit.DAYS); j++){
-                                if(startDate.plusDays(j).isAfter(dateStartFormatted)
-                                    && startDate.plusDays(j).isBefore(dateEndFormatted)){
-                                    checker = 1;
-                                }
-                            }
-                            if(checker == 0){
-                                availProps.add(i);
-                            }
-                        }
-                        res2.close();
-                    }
-                    LinkedHashSet<Integer> hashSet = new LinkedHashSet<>(availProps);
-                    ArrayList<Integer> listWoDups = new ArrayList<>(hashSet);
-                    for(int k = 0; k < listWoDups.size(); k++){
-                        DefaultTableModel rowModel = (DefaultTableModel) tableShowResults.getModel();
-                        int index = availProps.get(k);
-                        Object [] row1 = {
-                            rowModel.getRowCount()
-                        };
-                        //rowModel.addRow(row1);
-                        System.out.println(propsGenLoc.get(listWoDups.get(k)));
-                    }
                 }
                 catch (SQLException ex){
                     ex.printStackTrace();
@@ -3692,6 +3691,154 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         showProvisionalBookingsActionPerformed(evt);
     }//GEN-LAST:event_denyProvisionalBookingActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        int rowCount = ((DefaultTableModel)userDashTable.getModel()).getRowCount();
+        userDashBoard.clear();
+        
+        for(int i = 0; i < rowCount; i++){
+            ((DefaultTableModel)userDashTable.getModel()).removeRow(0);
+        }
+        
+        validatedEmail = "";
+        signUpPanel.setVisible(true);
+        hostJarvis.setVisible(false);
+        userDashboard.setVisible(false);
+        confAddressGuestDash.setText("");
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void userDashboardMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userDashboardMainActionPerformed
+        int rowCount = ((DefaultTableModel)userDashTable.getModel()).getRowCount();
+        
+        for(int i = 0; i < rowCount; i++){
+            ((DefaultTableModel)userDashTable.getModel()).removeRow(0);
+        }
+        
+        userDashBoard.clear();
+        
+        jLabel72.setText(validatedEmail);
+        Connection con = null;
+        Statement stmt = null;
+        
+        try{
+            System.out.println("Connection Opened");
+            con = DriverManager.getConnection(
+                    "jdbc:mysql://stusql.dcs.shef.ac.uk/team015",
+                    "team015",
+                    "ea4da4e8"
+            );
+            
+            stmt = con.createStatement();
+            String runQuery = ("SELECT * FROM bookings WHERE guestID = '" + validatedEmail + "' AND startDate > DATE('2021-01-01') and endDate >= DATE(NOW())").toString();
+            ResultSet res = stmt.executeQuery(runQuery);
+            System.out.println("Query Processed!");
+            
+            while(res.next()){
+                if(res.getBoolean(6)){
+                    userDashBoard.add(res.getString(1) + "@@@@@" + String.valueOf(res.getInt(2)) + "@@@@@" + 
+                        String.valueOf(res.getDate(4)) + "@@@@@" + String.valueOf(res.getDate(5)) + "@@@@@Confirmed");
+                }
+                else{
+                    userDashBoard.add(res.getString(1) + "@@@@@" + String.valueOf(res.getInt(2)) + "@@@@@" + 
+                        String.valueOf(res.getDate(4)) + "@@@@@" + String.valueOf(res.getDate(5)) + "@@@@@Pending");
+                }
+            }
+            DefaultTableModel rowModel = (DefaultTableModel) userDashTable.getModel();
+            for( int i = rowModel.getRowCount() - 1; i >= 0; i-- ) {
+                rowModel.removeRow(i);
+            }
+            for(int i = 0; i < userDashBoard.size(); i++){
+                runQuery = ("SELECT shortName, generalLoc FROM propertyMainData "
+                        + "WHERE hostID = '" + userDashBoard.get(i).split("@@@@@")[0] + "' AND " + 
+                        "propertyID = '" + userDashBoard.get(i).split("@@@@@")[1] + "'").toString();
+                ResultSet res2 = stmt.executeQuery(runQuery);
+                if(res2.next()){
+                    userDashBoard.set(i, (userDashBoard.get(i) + "@@@@@" + res2.getString(1) + 
+                            "@@@@@" + res2.getString(2)));
+                }
+                res2.close();
+                Object [] row1 = {
+                    userDashBoard.get(i).split("@@@@@")[5],
+                    userDashBoard.get(i).split("@@@@@")[4],
+                    userDashBoard.get(i).split("@@@@@")[6],
+                    userDashBoard.get(i).split("@@@@@")[2],
+                    userDashBoard.get(i).split("@@@@@")[3]
+                    
+                };
+                rowModel.addRow(row1);
+            }
+            
+            res.close();
+        }
+        catch(Exception e){
+            System.out.println(e);
+            showMessageDialog(null, "Please select a row to get information");
+        }
+        finally {
+            if(con != null) try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(HomeBreaksPLC_GUI.class.getName()).log(Level.SEVERE, null, ex);
+            }System.out.println("Connection Closed");
+            if(stmt != null) try {
+                stmt.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(HomeBreaksPLC_GUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_userDashboardMainActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        validatedEmail = "";
+        signUpPanel.setVisible(true);
+        hostJarvis.setVisible(false);
+        userDashboard.setVisible(false);
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        int selectedRow = userDashTable.getSelectedRow();
+        String propertyName = (String) userDashTable.getValueAt(selectedRow, 0);
+        String generalLoc = (String) userDashTable.getValueAt(selectedRow, 2);
+        
+        Connection con = null;
+        Statement stmt = null;
+        
+        try{
+            System.out.println("Connection Opened");
+            con = DriverManager.getConnection(
+                    "jdbc:mysql://stusql.dcs.shef.ac.uk/team015",
+                    "team015",
+                    "ea4da4e8"
+            );
+            
+            stmt = con.createStatement();
+            String runQuery = ("SELECT detailedLoc FROM propertyMainData WHERE shortName = '" + 
+                    propertyName + "' AND generalLoc = '" + generalLoc + "'").toString();
+            ResultSet res = stmt.executeQuery(runQuery);
+            
+            if(res.next()){
+                confAddressGuestDash.setText(res.getString(1));
+            }
+            
+            System.out.println("Query Processed!");
+            res.close();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+        finally {
+            if(con != null) try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(HomeBreaksPLC_GUI.class.getName()).log(Level.SEVERE, null, ex);
+            }System.out.println("Connection Closed");
+            if(stmt != null) try {
+                stmt.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(HomeBreaksPLC_GUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jButton10ActionPerformed
+
       
     /**
      * @param args the command line arguments
@@ -3748,6 +3895,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JTextField cleaningCharge;
     private javax.swing.JLabel cleaningChargeText;
     private javax.swing.JTextField confAddress;
+    private javax.swing.JLabel confAddressGuestDash;
     private javax.swing.JTextField defaultCleaningCharge;
     private javax.swing.JTextField defaultPricePerNight;
     private javax.swing.JTextField defaultServiceCharge;
@@ -3766,10 +3914,13 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JTextField generalLocEnquiry;
     private javax.swing.JPanel hostJarvis;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
@@ -3843,7 +3994,6 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
@@ -3857,7 +4007,6 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
-    private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
@@ -3876,7 +4025,6 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
-    private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
@@ -3925,7 +4073,6 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
@@ -3983,6 +4130,8 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JTextField surname;
     private javax.swing.JTable tableShowResults;
     private javax.swing.JComboBox<String> title;
+    private javax.swing.JTable userDashTable;
     private javax.swing.JPanel userDashboard;
+    private javax.swing.JButton userDashboardMain;
     // End of variables declaration//GEN-END:variables
 }
