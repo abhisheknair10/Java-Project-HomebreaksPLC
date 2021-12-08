@@ -3543,15 +3543,38 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
             String confirmedStatus = "";
 
             stmt = con.createStatement();
-            String runQuery = ("SELECT * FROM bathroomData WHERE hostID = '" + 
+            String runQuery = ("SELECT * FROM bedData WHERE hostID = '" + 
                     propertyName.split("-")[0] + 
                     "' AND propertyID = '" + propertyName.split("-")[1] + "'").toString();
             System.out.println("Query Processed!");
             ResultSet res = stmt.executeQuery(runQuery);
             
             while(res.next()){
-                
+                jTextArea1.append(String.valueOf(res.getInt(3)) + ". Bed1 - " + 
+                        res.getString(4) + ", Bed2 - " + res.getString(5) + 
+                        ", Bed Linen - " + String.valueOf(res.getBoolean(6)) + 
+                        ", Towels - " + String.valueOf(res.getBoolean(7)) + "\n");
             }
+            res.close();
+            
+            runQuery = ("SELECT * FROM bathroomData WHERE hostID = '" + 
+                    propertyName.split("-")[0] + 
+                    "' AND propertyID = '" + propertyName.split("-")[1] + "'").toString();
+            System.out.println("Query Processed!");
+            res = stmt.executeQuery(runQuery);
+            
+            while(res.next()){
+                jTextArea2.append(
+                        String.valueOf(res.getInt(3)) + ". " + "Toilet - " + 
+                                String.valueOf(res.getBoolean(4)) + ", Bath - " + 
+                                String.valueOf(res.getBoolean(5)) + ", Shower - " + 
+                                String.valueOf(res.getBoolean(6)) + ", Shared w Host - " + 
+                                String.valueOf(res.getBoolean(7)) + ", Hair Dryer - " + 
+                                String.valueOf(res.getBoolean(8)) + ", Shampoo - " + 
+                                String.valueOf(res.getBoolean(9)) + ", Toilet Paper - " +
+                                String.valueOf(res.getBoolean(10)) + "\n");
+            }
+            res.close();
         }
         catch (Exception ex){
             ex.printStackTrace();
