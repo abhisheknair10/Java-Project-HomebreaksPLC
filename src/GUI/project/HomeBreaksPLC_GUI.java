@@ -11,13 +11,17 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.DateTimeException;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedHashSet;
+import java.util.Locale;
 import static java.util.concurrent.TimeUnit.DAYS;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -100,7 +104,6 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         enquireWOSignIn = new javax.swing.JButton();
         jScrollPane8 = new javax.swing.JScrollPane();
         tableShowResults = new javax.swing.JTable();
-        jSpinner1 = new javax.swing.JSpinner();
         jButton3 = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
@@ -130,14 +133,6 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         rawPasswordSignIn1 = new javax.swing.JPasswordField();
         jLabel61 = new javax.swing.JLabel();
         jButton9 = new javax.swing.JButton();
-        jLabel62 = new javax.swing.JLabel();
-        jLabel63 = new javax.swing.JLabel();
-        jLabel64 = new javax.swing.JLabel();
-        jLabel65 = new javax.swing.JLabel();
-        jLabel66 = new javax.swing.JLabel();
-        jLabel67 = new javax.swing.JLabel();
-        jLabel68 = new javax.swing.JLabel();
-        jLabel69 = new javax.swing.JLabel();
         hostJarvis = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -591,14 +586,14 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Serial Number", "Short Name", "Breakfast", "Max Guests", "Total Price", "SuperHost"
+                "ID", "Short Name", "Breakfast", "Max Guests", "Total Price"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Boolean.class, java.lang.Integer.class, java.lang.Float.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, true
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -652,12 +647,9 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                                 .addComponent(generalLocEnquiry, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(156, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
@@ -684,9 +676,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
                 .addGap(29, 29, 29)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53))
         );
 
@@ -765,30 +755,34 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane9)
                             .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane10)
-                            .addComponent(jLabel46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane11)
-                            .addComponent(jLabel53, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane12, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel54, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(27, 27, 27)
+                        .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton7)
+                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jScrollPane12, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel54, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel11Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel11Layout.createSequentialGroup()
-                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jScrollPane13)
-                                    .addComponent(jLabel55, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(27, 27, 27)
-                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jScrollPane14)
-                                    .addComponent(jLabel56, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(301, 301, 301)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
@@ -796,35 +790,38 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(32, 32, 32)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel55, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(67, 67, 67)
+                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(39, 39, 39)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton7)
-                    .addComponent(jButton8))
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                        .addComponent(jButton8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton7)))
+                .addGap(17, 17, 17))
         );
 
         jLabel59.setText("Email");
@@ -841,22 +838,11 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         jLabel61.setText("Confirm Booking");
 
         jButton9.setText("Confirm Booking");
-
-        jLabel62.setText("Property Name");
-
-        jLabel63.setText("Check Out Date");
-
-        jLabel64.setText("Check In Date");
-
-        jLabel65.setText("Total Price");
-
-        jLabel66.setText("-");
-
-        jLabel67.setText("-");
-
-        jLabel68.setText("-");
-
-        jLabel69.setText("-");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -869,24 +855,11 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                             .addGap(160, 160, 160)
                             .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel59, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel60, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel65, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel63, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel64, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel60, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE))
+                            .addGap(45, 45, 45)
                             .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel12Layout.createSequentialGroup()
-                                    .addGap(45, 45, 45)
-                                    .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(rawPasswordSignIn1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(emailSignIn1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(jPanel12Layout.createSequentialGroup()
-                                    .addGap(117, 117, 117)
-                                    .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel68, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel69, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(rawPasswordSignIn1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(emailSignIn1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(jButton9)))
@@ -900,23 +873,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel66))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel64, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel67))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel68))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel65, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel69))
-                .addGap(30, 30, 30)
+                .addGap(190, 190, 190)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel59)
                     .addComponent(emailSignIn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -3468,7 +3425,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
             stmt.executeUpdate(runQuery);
             
             runQuery = ("DELETE FROM bookings WHERE "
-                    + "hostID = '" + validatedEmail + "' AND confirmed = FALSE AND ((DATE('" + 
+                    + "hostID = '" + validatedEmail + "' AND propertyID = '" + selectedString.split(" -- ")[1] + "' AND confirmed = FALSE AND ((DATE('" + 
                     selectedString.split(" -- ")[2] + "') >= startDate AND DATE('" + 
                     selectedString.split(" -- ")[2] + "') <= endDate) OR (DATE('" + 
                     selectedString.split(" -- ")[3] + "') >= startDate AND DATE('" + 
@@ -3566,6 +3523,52 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_showProvisionalBookingsActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        int selectedRow = tableShowResults.getSelectedRow();
+        String propertyName = (String) tableShowResults.getValueAt(selectedRow, 0);
+        String generalLoc = (String) tableShowResults.getValueAt(selectedRow, 2);
+        
+        Connection con = null;
+        Statement stmt = null;
+        ArrayList<String> confirmedBookings = new ArrayList<String>();
+
+        try {
+            System.out.println("Connection Opened");
+            con = DriverManager.getConnection(
+                    "jdbc:mysql://stusql.dcs.shef.ac.uk/team015",
+                    "team015",
+                    "ea4da4e8"
+            );
+            
+            String addFields = "";
+            String confirmedStatus = "";
+
+            stmt = con.createStatement();
+            String runQuery = ("SELECT * FROM bathroomData WHERE hostID = '" + 
+                    propertyName.split("-")[0] + 
+                    "' AND propertyID = '" + propertyName.split("-")[1] + "'").toString();
+            System.out.println("Query Processed!");
+            ResultSet res = stmt.executeQuery(runQuery);
+            
+            while(res.next()){
+                
+            }
+        }
+        catch (Exception ex){
+            ex.printStackTrace();
+        }
+        finally {
+            if(con != null) try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(HomeBreaksPLC_GUI.class.getName()).log(Level.SEVERE, null, ex);
+            }System.out.println("Connection Closed");
+            if(stmt != null) try {
+                stmt.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(HomeBreaksPLC_GUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
         jPanel10.setVisible(false);
         jPanel11.setVisible(true);
         jPanel12.setVisible(false);
@@ -3583,7 +3586,13 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         Connection con = null;
         Statement stmt = null;
         ArrayList<String> propsGenLoc = new ArrayList<String>();
-        ArrayList<Integer> availProps = new ArrayList<Integer>();
+        ArrayList<String> availProps = new ArrayList<String>();
+        
+        int rowCount = ((DefaultTableModel)tableShowResults.getModel()).getRowCount();
+        
+        for(int i = 0; i < rowCount; i++){
+            ((DefaultTableModel)tableShowResults.getModel()).removeRow(0);
+        }
 
         try{
             ssDay = Integer.parseInt((String) jComboBox7.getSelectedItem());
@@ -3618,6 +3627,70 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                             String.valueOf(res.getInt(7)) + "@@@@@" + String.valueOf(res.getInt(8)) + "@@@@@" +
                             String.valueOf(res.getFloat(9)) + "@@@@@" + String.valueOf(res.getFloat(10)) + "@@@@@" +
                             String.valueOf(res.getFloat(11))).toString());
+                    }
+                    res.close();
+                    
+                    for(int i = 0; i < propsGenLoc.size(); i++){
+                        runQuery = ("SELECT * FROM bookings WHERE " + 
+                                "hostID = '" + propsGenLoc.get(i).split("@@@@@")[0] + 
+                                "' AND propertyID = " + propsGenLoc.get(i).split("@@@@@")[1] + 
+                                " AND confirmed = TRUE AND (((DATE('" + 
+                                startDate + "') >= startDate AND DATE('" + 
+                                startDate + "') <= endDate) OR (DATE('" + 
+                                endDate + "') >= startDate AND DATE('" + 
+                                endDate + "') <= endDate) OR (DATE('" + 
+                                startDate + "') <= startDate AND DATE('" + 
+                                endDate + "') >= endDate)))").toString();
+                        System.out.println(runQuery);
+                        ResultSet res2 = stmt.executeQuery(runQuery);
+                        if(res2.next()){;}
+                        else{
+                            availProps.add(propsGenLoc.get(i));
+                        }
+                        res2.close();
+                    }
+                    DefaultTableModel rowModel = (DefaultTableModel) tableShowResults.getModel();
+                    for(int i = 0; i < availProps.size(); i++){
+                        runQuery = ("SELECT * FROM bedData WHERE hostID = '" + availProps.get(i).split("@@@@@")[0] + "' AND "
+                                + "propertyID = '" + availProps.get(i).split("@@@@@")[1] +"'").toString();
+                        ResultSet res3 = stmt.executeQuery(runQuery);
+                        int bedrooms = 0;
+                        int maxGuests = 0;
+
+                        while(res3.next()){
+                            bedrooms += 1;
+                            if(res3.getString(4).equals("single")){
+                                maxGuests += 1;
+                            }
+                            else if(res3.getString(4).equals("none")){
+                                maxGuests += 0;
+                            }
+                            else{
+                                maxGuests += 2;
+                            }
+
+                            if(res3.getString(5).equals("single")){
+                                maxGuests += 1;
+                            }
+                            else if(res3.getString(5).equals("none")){
+                                maxGuests += 0;
+                            }
+                            else{
+                                maxGuests += 2;
+                            }
+                        }
+                        res3.close();
+                        String breakfast = "No";
+                        float total = Float.parseFloat(availProps.get(i).split("@@@@@")[6]) + Float.parseFloat(availProps.get(i).split("@@@@@")[7]) + Float.parseFloat(availProps.get(i).split("@@@@@")[8]);
+                        if(Boolean.valueOf(availProps.get(i).split("@@@@@")[5])){breakfast = "Yes";}
+                        Object [] row1 = {
+                            availProps.get(i).split("@@@@@")[0] + "-" + availProps.get(i).split("@@@@@")[1],
+                            availProps.get(i).split("@@@@@")[2],
+                            breakfast,
+                            maxGuests,
+                            String.valueOf(total*ChronoUnit.DAYS.between(startDate, endDate))
+                        };
+                        rowModel.addRow(row1);;
                     }
                 }
                 catch (SQLException ex){
@@ -3839,6 +3912,95 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton10ActionPerformed
 
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        String EMAIL = emailSignIn1.getText();
+        String PASSWORD = String.valueOf(rawPasswordSignIn1.getPassword());
+        boolean error = true;
+        
+        int selectedRow = tableShowResults.getSelectedRow();
+        String propertyName = (String) tableShowResults.getValueAt(selectedRow, 0);
+        int ssDay;
+        int ssMonth;
+        int ssYear;
+        int eeDay;
+        int eeMonth;
+        int eeYear;
+        LocalDate startDate;
+        LocalDate endDate;
+        ssDay = Integer.parseInt((String) jComboBox7.getSelectedItem());
+        ssMonth = Integer.parseInt((String) jComboBox8.getSelectedItem());
+        ssYear = Integer.parseInt((String) jComboBox9.getSelectedItem());
+        startDate = LocalDate.of(ssYear, ssMonth, ssDay);
+
+        eeDay = Integer.parseInt((String) jComboBox10.getSelectedItem());
+        eeMonth = Integer.parseInt((String) jComboBox11.getSelectedItem());
+        eeYear = Integer.parseInt((String) jComboBox12.getSelectedItem());
+        endDate = LocalDate.of(eeYear, eeMonth, eeDay);
+
+        signInMethods signInValidators = new signInMethods();
+        String hashedPassword = "";
+
+        if(!signInValidators.emailValidator(EMAIL)){
+            error = true;
+            showMessageDialog(null, "Incorrect Email Format");
+        }
+        else{
+            try {
+                hashedPassword = signInValidators.sha256HashingAlgorithm(EMAIL+PASSWORD);
+            } catch (Exception ex) {
+                //Logger.getLogger(HomeBreaksPLC_GUI.class.getName()).log(Level.SEVERE, null, ex);
+                showMessageDialog(null, "OOPS! Something Went Wrong");
+            }
+
+            boolean verifyCredentials = false;
+            try {
+                verifyCredentials = signInValidators.verifySignIn(EMAIL, hashedPassword);
+            } catch (Exception ex) {
+                //Logger.getLogger(HomeBreaksPLC_GUI.class.getName()).log(Level.SEVERE, null, ex);
+                showMessageDialog(null, "OOPS! Something Went Wrong");
+            }
+
+            if(verifyCredentials) {
+                showMessageDialog(null, "Booking Confirmed");
+                Connection con = null;
+                Statement stmt = null;
+
+                try {
+                    System.out.println("Connection Opened");
+                    con = DriverManager.getConnection(
+                            "jdbc:mysql://stusql.dcs.shef.ac.uk/team015",
+                            "team015",
+                            "ea4da4e8"
+                    );
+
+                    stmt = con.createStatement();
+                    String statement = ("INSERT INTO bookings VALUES ('" + propertyName.split("-")[0] + 
+                            "', '" + propertyName.split("-")[1] + "', '" + EMAIL + 
+                            "', DATE('" + startDate + "'), DATE('" + endDate + "'), FALSE)").toString();
+                    
+                    System.out.println(statement);
+
+                    stmt.executeUpdate(statement);
+                    System.out.println("Query Processed!");
+                }
+                catch (Exception ex){
+                    ex.printStackTrace();
+                }
+                finally {
+                    if(con != null) try {
+                        con.close();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(HomeBreaksPLC_GUI.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    System.out.println("Connection Closed");
+                }
+            }
+            else{
+                showMessageDialog(null, "The email and password combination does not exist");
+            }
+        }
+    }//GEN-LAST:event_jButton9ActionPerformed
+
       
     /**
      * @param args the command line arguments
@@ -4011,14 +4173,6 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
-    private javax.swing.JLabel jLabel62;
-    private javax.swing.JLabel jLabel63;
-    private javax.swing.JLabel jLabel64;
-    private javax.swing.JLabel jLabel65;
-    private javax.swing.JLabel jLabel66;
-    private javax.swing.JLabel jLabel67;
-    private javax.swing.JLabel jLabel68;
-    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
@@ -4071,7 +4225,6 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
