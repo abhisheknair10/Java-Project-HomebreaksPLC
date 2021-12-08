@@ -3153,7 +3153,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="0" pref="39" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="90" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                           <Component id="jSeparator12" max="32767" attributes="0"/>
                                           <Component id="jSeparator14" alignment="1" max="32767" attributes="0"/>
@@ -3629,11 +3629,11 @@
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Component id="jScrollPane17" max="32767" attributes="0"/>
                                           <Group type="102" attributes="0">
-                                              <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                                              <Component id="showProvisionalBookings" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace pref="260" max="32767" attributes="0"/>
-                                              <Component id="jButton13" min="-2" max="-2" attributes="0"/>
+                                              <Component id="approveProvisionalBookings" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                                              <Component id="jButton14" min="-2" pref="123" max="-2" attributes="0"/>
+                                              <Component id="denyProvisionalBooking" min="-2" pref="123" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
@@ -3651,9 +3651,9 @@
                               <Component id="jScrollPane17" min="-2" pref="252" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jButton13" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton14" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="approveProvisionalBookings" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="denyProvisionalBooking" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="showProvisionalBookings" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="221" max="32767" attributes="0"/>
                           </Group>
@@ -3669,28 +3669,28 @@
                         <Property name="text" type="java.lang.String" value="All Provisional Bookings"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton6">
+                    <Component class="javax.swing.JButton" name="showProvisionalBookings">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Show Provisional Bookings"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="showProvisionalBookingsActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton13">
+                    <Component class="javax.swing.JButton" name="approveProvisionalBookings">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Approve Booking "/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton13ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="approveProvisionalBookingsActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton14">
+                    <Component class="javax.swing.JButton" name="denyProvisionalBooking">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Deny Booking"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton14ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="denyProvisionalBookingActionPerformed"/>
                       </Events>
                     </Component>
                     <Container class="javax.swing.JScrollPane" name="jScrollPane17">

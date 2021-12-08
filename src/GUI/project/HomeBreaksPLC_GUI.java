@@ -292,9 +292,9 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel44 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
+        showProvisionalBookings = new javax.swing.JButton();
+        approveProvisionalBookings = new javax.swing.JButton();
+        denyProvisionalBooking = new javax.swing.JButton();
         jScrollPane17 = new javax.swing.JScrollPane();
         listProvisional = new javax.swing.JList<>();
         userDashboard = new javax.swing.JPanel();
@@ -2189,7 +2189,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addGap(0, 39, Short.MAX_VALUE)
+                .addGap(0, 90, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jSeparator12)
                     .addComponent(jSeparator14)
@@ -2384,24 +2384,24 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         jLabel44.setFont(new java.awt.Font(".SF NS Text", 0, 14)); // NOI18N
         jLabel44.setText("All Provisional Bookings");
 
-        jButton6.setText("Show Provisional Bookings");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        showProvisionalBookings.setText("Show Provisional Bookings");
+        showProvisionalBookings.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                showProvisionalBookingsActionPerformed(evt);
             }
         });
 
-        jButton13.setText("Approve Booking ");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
+        approveProvisionalBookings.setText("Approve Booking ");
+        approveProvisionalBookings.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
+                approveProvisionalBookingsActionPerformed(evt);
             }
         });
 
-        jButton14.setText("Deny Booking");
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
+        denyProvisionalBooking.setText("Deny Booking");
+        denyProvisionalBooking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
+                denyProvisionalBookingActionPerformed(evt);
             }
         });
 
@@ -2421,11 +2421,11 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane17)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jButton6)
+                                .addComponent(showProvisionalBookings)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 260, Short.MAX_VALUE)
-                                .addComponent(jButton13)
+                                .addComponent(approveProvisionalBookings)
                                 .addGap(21, 21, 21)
-                                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(denyProvisionalBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(66, 66, 66))))
         );
         jPanel3Layout.setVerticalGroup(
@@ -2437,9 +2437,9 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton13)
-                    .addComponent(jButton14)
-                    .addComponent(jButton6))
+                    .addComponent(approveProvisionalBookings)
+                    .addComponent(denyProvisionalBooking)
+                    .addComponent(showProvisionalBookings))
                 .addContainerGap(221, Short.MAX_VALUE))
         );
 
@@ -3244,6 +3244,12 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 System.out.println("Query Processed!");
             }
             
+            statement = ("INSERT INTO bookings VALUES('" + validatedEmail + 
+                    "', " + lastID + ", '" + validatedEmail + "', DATE('2020-01-01'), "
+                            + "DATE('2020-01-02'), FALSE)").toString();
+            System.out.println(statement);
+            stmt.executeUpdate(statement);
+            
             sPropertyName.setText("");
             sPropertyDescription.setText("");
             sGeneralLocation.setText("");
@@ -3396,11 +3402,54 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton13ActionPerformed
+    private void approveProvisionalBookingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_approveProvisionalBookingsActionPerformed
+        Connection con = null;
+        Statement stmt = null;
+        String selectedString = listProvisional.getSelectedValue();
+        
+        try {
+            System.out.println("Connection Opened");
+            con = DriverManager.getConnection(
+                    "jdbc:mysql://stusql.dcs.shef.ac.uk/team015",
+                    "team015",
+                    "ea4da4e8"
+            );
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+            stmt = con.createStatement();
+            String runQuery = ("UPDATE bookings SET confirmed = TRUE WHERE "
+                    + "hostID = '" + validatedEmail + "' AND propertyID = " + 
+                    selectedString.split(" -- ")[1] + " AND guestID = '" + 
+                    selectedString.split(" -- ")[4] + "' AND startDate = DATE('" + 
+                    selectedString.split(" -- ")[2] + "') AND endDate = DATE('" +
+                    selectedString.split(" -- ")[3] + "')");
+            System.out.println(runQuery);
+            System.out.println("Query Processed!");
+            stmt.executeUpdate(runQuery);
+            
+            runQuery = ("DELETE FROM bookings WHERE "
+                    + "hostID = '" + validatedEmail + "' AND confirmed = FALSE AND ((DATE('" + selectedString.split(" -- ")[2] + "') >= startDate AND DATE('" + selectedString.split(" -- ")[2] + "') <= endDate) OR (DATE('" + selectedString.split(" -- ")[3] + "') >= startDate AND DATE('" + selectedString.split(" -- ")[3] + "') <= endDate) OR (DATE('" + selectedString.split(" -- ")[2] + "') <= startDate AND DATE('" + selectedString.split(" -- ")[3] + "') >= endDate))").toString();
+            System.out.println(runQuery);
+            stmt.executeUpdate(runQuery);
+        }
+        catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        finally {
+            if(con != null) try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(HomeBreaksPLC_GUI.class.getName()).log(Level.SEVERE, null, ex);
+            }System.out.println("Connection Closed");
+            if(stmt != null) try {
+                stmt.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(HomeBreaksPLC_GUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        showProvisionalBookingsActionPerformed(evt);
+    }//GEN-LAST:event_approveProvisionalBookingsActionPerformed
+
+    private void showProvisionalBookingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showProvisionalBookingsActionPerformed
         Connection con = null;
         Statement stmt = null;
         ArrayList<String> propsToDisplay = new ArrayList<String>();
@@ -3415,8 +3464,8 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
             );
 
             stmt = con.createStatement();
-            String runQuery = ("SELECT * FROM bookings WHERE hostID = '" + 
-                    validatedEmail + "' AND confirmed = FALSE").toString();
+            String runQuery = ("SELECT DISTINCT * FROM bookings WHERE hostID = '" + 
+                    validatedEmail + "' AND confirmed = FALSE AND startDate > DATE('2021-01-01')").toString();
             System.out.println("Query Processed!");
             ResultSet res = stmt.executeQuery(runQuery);
             
@@ -3466,7 +3515,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 Logger.getLogger(HomeBreaksPLC_GUI.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_showProvisionalBookingsActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         jPanel10.setVisible(false);
@@ -3602,7 +3651,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_generalLocEnquiryActionPerformed
 
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+    private void denyProvisionalBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_denyProvisionalBookingActionPerformed
         String selectedString = (String) listProvisional.getSelectedValue();
         Connection con = null;
         Statement stmt = null;
@@ -3640,8 +3689,8 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 Logger.getLogger(HomeBreaksPLC_GUI.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        jButton6ActionPerformed(evt);
-    }//GEN-LAST:event_jButton14ActionPerformed
+        showProvisionalBookingsActionPerformed(evt);
+    }//GEN-LAST:event_denyProvisionalBookingActionPerformed
 
       
     /**
@@ -3683,6 +3732,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JPanel Enquire;
     private javax.swing.JPanel Login;
     private javax.swing.JPanel SignUp;
+    private javax.swing.JButton approveProvisionalBookings;
     private javax.swing.JButton back1;
     private javax.swing.JButton back2;
     private javax.swing.JButton back3;
@@ -3702,6 +3752,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JTextField defaultPricePerNight;
     private javax.swing.JTextField defaultServiceCharge;
     private javax.swing.JButton deleteListing;
+    private javax.swing.JButton denyProvisionalBooking;
     private javax.swing.JLabel detailedLoc;
     private javax.swing.JTextField displayName;
     private javax.swing.JComboBox<String> eDay;
@@ -3715,13 +3766,10 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JTextField generalLocEnquiry;
     private javax.swing.JPanel hostJarvis;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
@@ -3928,6 +3976,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> sYear;
     private javax.swing.JTextField serviceCharge;
     private javax.swing.JLabel serviceChargeText;
+    private javax.swing.JButton showProvisionalBookings;
     private javax.swing.JButton signIn;
     private javax.swing.JButton signUp;
     private javax.swing.JPanel signUpPanel;
