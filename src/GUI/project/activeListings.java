@@ -244,15 +244,15 @@ public class activeListings {
             String runQuery = ("SELECT * FROM bookings "
                     + "WHERE hostID = '" + hostID + "' AND propertyID = '" + value.split(" @ ")[1] + "' "
                             + "AND confirmed = TRUE ORDER BY startDate ASC").toString();
-            System.out.println("Query Processed!");
+            System.out.println("Query Processed pROBLEM!");
             ResultSet res = stmt.executeQuery(runQuery);
             
             while(res.next()){
                 DateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
-                Date startDate = format.parse(res.getString(3));
-                Date endDate = format.parse(res.getString(4));
+                Date startDate = format.parse(res.getString(4));
+                Date endDate = format.parse(res.getString(5));
                 int daysBooked = ((int) (endDate.getTime() - startDate.getTime()))/86400000;
-                addFields = res.getString(3) + " to " + res.getString(4) + " - " + String.valueOf(daysBooked) + " day(s)";
+                addFields = res.getString(4) + " to " + res.getString(5) + " - " + String.valueOf(daysBooked) + " day(s)";
                 confirmedBookings.add(addFields);
             }
         }

@@ -774,15 +774,15 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                                 .addComponent(jLabel54, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel11Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel11Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
+                                .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(301, 301, 301))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel11Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(301, 301, 301)))))
+                                    .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
@@ -808,16 +808,17 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                             .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
                         .addComponent(jButton8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton7)))
@@ -900,7 +901,7 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, 812, Short.MAX_VALUE)
+                    .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, 812, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane2Layout.createSequentialGroup()
@@ -3523,6 +3524,13 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_showProvisionalBookingsActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        jTextArea1.setText("");
+        jTextArea2.setText("");
+        jTextArea3.setText("");
+        jTextArea4.setText("");
+        jTextArea5.setText("");
+        jTextArea6.setText("");
+        
         int selectedRow = tableShowResults.getSelectedRow();
         String propertyName = (String) tableShowResults.getValueAt(selectedRow, 0);
         String generalLoc = (String) tableShowResults.getValueAt(selectedRow, 2);
@@ -3573,6 +3581,87 @@ public class HomeBreaksPLC_GUI extends javax.swing.JFrame {
                                 String.valueOf(res.getBoolean(8)) + ", Shampoo - " + 
                                 String.valueOf(res.getBoolean(9)) + ", Toilet Paper - " +
                                 String.valueOf(res.getBoolean(10)) + "\n");
+            }
+            res.close();
+            
+            runQuery = ("SELECT * FROM kitchen WHERE hostID = '" + 
+                    propertyName.split("-")[0] + 
+                    "' AND propertyID = '" + propertyName.split("-")[1] + "'").toString();
+            System.out.println("Query Processed!");
+            res = stmt.executeQuery(runQuery);
+            
+            while(res.next()){
+                jTextArea3.append(
+                        (
+                        "Refrigertor - " + String.valueOf(res.getBoolean(3)) + "\n" +
+                        "Microwave - " + String.valueOf(res.getBoolean(4)) + "\n" +
+                        "Oven - " + String.valueOf(res.getBoolean(5)) + "\n" +
+                        "Stove - " + String.valueOf(res.getBoolean(6)) + "\n" +
+                        "Dishwasher - " + String.valueOf(res.getBoolean(7)) + "\n" +
+                        "Tableware - " + String.valueOf(res.getBoolean(8)) + "\n" +
+                        "Cookware - " + String.valueOf(res.getBoolean(9)) + "\n" +
+                        "Basic Provisions - " + String.valueOf(res.getBoolean(10))
+                        ).toString()
+                );
+            }
+            res.close();
+            
+            runQuery = ("SELECT * FROM living WHERE hostID = '" + 
+                    propertyName.split("-")[0] + 
+                    "' AND propertyID = '" + propertyName.split("-")[1] + "'").toString();
+            System.out.println("Query Processed!");
+            res = stmt.executeQuery(runQuery);
+            
+            while(res.next()){
+                jTextArea4.append(
+                        (
+                        "WIFI - " + String.valueOf(res.getBoolean(3)) + "\n" +
+                        "Television - " + String.valueOf(res.getBoolean(4)) + "\n" +
+                        "Satellite - " + String.valueOf(res.getBoolean(5)) + "\n" +
+                        "Streaming - " + String.valueOf(res.getBoolean(6)) + "\n" +
+                        "DVD Player - " + String.valueOf(res.getBoolean(7)) + "\n" +
+                        "Board Games - " + String.valueOf(res.getBoolean(8))
+                        ).toString()
+                );
+            }
+            res.close();
+            
+            runQuery = ("SELECT * FROM utility WHERE hostID = '" + 
+                    propertyName.split("-")[0] + 
+                    "' AND propertyID = '" + propertyName.split("-")[1] + "'").toString();
+            System.out.println("Query Processed!");
+            res = stmt.executeQuery(runQuery);
+            
+            while(res.next()){
+                jTextArea5.append(
+                        (
+                        "Heating - " + String.valueOf(res.getBoolean(3)) + "\n" +
+                        "Washing Machine - " + String.valueOf(res.getBoolean(4)) + "\n" +
+                        "Drying Machine - " + String.valueOf(res.getBoolean(5)) + "\n" +
+                        "Fire Extinguisher - " + String.valueOf(res.getBoolean(6)) + "\n" +
+                        "Smoke Alarm - " + String.valueOf(res.getBoolean(7)) + "\n" +
+                        "First Aid Kit - " + String.valueOf(res.getBoolean(8))
+                        ).toString()
+                );
+            }
+            res.close();
+            
+            runQuery = ("SELECT * FROM outdoor WHERE hostID = '" + 
+                    propertyName.split("-")[0] + 
+                    "' AND propertyID = '" + propertyName.split("-")[1] + "'").toString();
+            System.out.println("Query Processed!");
+            res = stmt.executeQuery(runQuery);
+            
+            while(res.next()){
+                jTextArea6.append(
+                        (
+                        "Free On Site Parking - " + String.valueOf(res.getBoolean(3)) + "\n" +
+                        "On Road Parking - " + String.valueOf(res.getBoolean(4)) + "\n" +
+                        "Paid Car Park - " + String.valueOf(res.getBoolean(5)) + "\n" +
+                        "Patio - " + String.valueOf(res.getBoolean(6)) + "\n" +
+                        "Barbeque - " + String.valueOf(res.getBoolean(7))
+                        ).toString()
+                );
             }
             res.close();
         }
